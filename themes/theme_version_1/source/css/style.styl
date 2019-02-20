@@ -1,0 +1,59 @@
+@import "home.styl"
+
+*
+  box-sizing border-box
+
+html, body
+  width 100%
+  min-height  100%
+  margin 0
+  padding 0
+
+body
+  background background-gray-color
+  font-family font-serif
+  clear both
+  overflow scroll
+
+nav.nav-container
+  padding 20px 40px 0 0 
+  display flex
+  justify-content flex-end
+  a.link
+    display block
+    margin 0 5px
+    color black
+  a.link:visited
+    color black
+  a.link:active
+    color black
+
+header
+  width 80%
+  border-bottom 1px solid black
+  padding-left 40px
+  h1
+    word-break break-all
+  span#date
+    display block
+
+article
+  width 70%
+  margin-left auto
+  margin-right auto
+  padding-top 2rem
+  padding-bottom 2rem
+
+hr
+  opacity 0.5
+
+
+footer
+  width 100%
+  padding-bottom 20px
+  span
+    display block
+    font-size 10px
+    color #999999
+    width 100%
+    text-align center

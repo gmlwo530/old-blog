@@ -1,0 +1,7 @@
+<nav class="nav-container">
+  <% for (var i in theme.menu){ %>
+    <a class="link" href="<%- theme.menu[i].url ? url_for(theme.menu[i].url) : url_for(theme.menu[i]) %>" target="<%- theme.menu[i].url ? '_blank' : '' %>">
+      <%= i %>
+    </a>
+  <% } %>
+</nav>

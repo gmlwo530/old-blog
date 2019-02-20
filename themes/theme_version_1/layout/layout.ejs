@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- partial('partial/head') %>
+  </head>
+
+  <body>
+    <%- partial('partial/nav') %>
+    <%- partial('partial/header') %>
+    <article>
+      <% if (page.layout === 'about') {%>
+        <%- partial('partial/about') %>
+      <% } else {%>
+        <%- body %>
+      <% } %>
+    </article>
+    <%- partial('partial/footer') %>
+    <div class='clear'></div>
+  </body>
+</html>

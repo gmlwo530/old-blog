@@ -1,0 +1,20 @@
+<header>
+  <h1>
+    <% if (page.title){ %>
+      <%= page.title %>
+    <% }else{ %>
+      <%= config.author %>
+    <% }%>
+  </h1>
+  
+  <% if (page.layout === 'about') {%>
+  
+  <% } else {%>
+    <% if (page.title){ %>
+      <span id='date'>
+        <%= date(page.date, config.date_format) %>
+      </span>
+    <% }%>
+  <% } %>
+  
+</header>
