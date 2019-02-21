@@ -1,0 +1,55 @@
+@import "variable.styl"
+
+code-border-radius = 10px 
+code-padding = 5px
+font-size = 12px
+line-height = 2px
+
+$code-block
+  background: super-light-gray
+  padding: 10px
+  overflow: auto
+  color: #000
+  line-height: font-size * line-height
+  border-radius: code-border-radius
+  margin: 10px 20px
+  border: 1px solid #EEEEEE;
+
+$line-numbers
+ color: #000
+ font-size: 0.85em
+
+code
+  background: super-light-gray
+  text-shadow: 0 1px #fff
+  padding: 0 0.3em
+pre
+  @extend $code-block
+  code
+    background: none
+    text-shadow: none
+    padding: 0
+.highlight
+  @extend $code-block
+  pre
+    border: none
+    margin: 0
+    padding: 0
+  table
+    margin: 0
+    width: auto
+  td
+    border: none
+    padding: 0
+  figcaption
+    clearfix()
+    font-size: 0.85em
+    color: #000
+    line-height: 1em
+    margin-bottom: 1em
+    a
+      float: right
+  .gutter pre
+    @extend $line-numbers
+    text-align: right
+    padding-right: 20px

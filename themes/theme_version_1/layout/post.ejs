@@ -1,6 +1,8 @@
-<div class="">
- <a class="" href='/'>Home</a>
+<div id="page-content">
+  <p id="post-date">
+    <%= date(page.date, config.date_format) %>
+  </p>
+  <%- page.content %>
 </div>
-<div class="">
- <%- page.content %>
-</div>
+
+<a id="post-link-home" href='/'>Home</a>

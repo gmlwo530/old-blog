@@ -1,16 +1,10 @@
-<div class="card">
-  <a href="<%- url_for(post.path) %>">
-    <h3>
-      <%= post.title %>
-    </h3>
-    <div class="post-date">
-      <%= date(post.date, config.date_format) %>
-    </div>
-    <div class="post-content"><%= post.content %></div>
-    <% if(post.excerpt) { %> //발췌
-    <p>
-      <%- post.excerpt %>
-    </p>
-    <% } %>
-  </a>
-</div>
+
+<a class="card" href="<%- url_for(post.path) %>">
+  <h3 class="post-title">
+    <%= post.title %>
+  </h3>
+  <div class="post-date">
+    <%= date(post.date, config.date_format) %>
+  </div>
+</a>
+
