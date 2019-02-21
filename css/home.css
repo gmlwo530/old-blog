@@ -1,24 +1,37 @@
-div.card-container {
+div#card-container {
   display: grid;
   grid-template-columns: auto auto auto;
   grid-column-gap: 50px;
   grid-row-gap: 50px;
 }
-div.card {
+a.card {
+  display: block;
   background-color: #fff;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1), 0 6px 20px 0 rgba(0,0,0,0.01);
   border-radius: 5px;
   padding: 10px;
-}
-div.card a {
   color: #000;
   text-decoration: none;
 }
-div.card a:visited {
+a.card h3 {
+  word-break: break-all;
+}
+a.card div.post-date {
+  font-size: 12px;
+  color: #e3e3e3;
+}
+a.card div.post-content {
+  font-size: 13px;
+  color: #a8a8a8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+a.card:visited {
   color: #000;
   text-decoration: none;
 }
-div.card a:active {
+a.card:active {
   color: #000;
   text-decoration: none;
 }

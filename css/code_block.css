@@ -1,0 +1,51 @@
+pre,
+.highlight {
+  background: #e3e3e3;
+  padding: 10px;
+  overflow: auto;
+  color: #000;
+  line-height: 24px;
+  border-radius: 10px;
+  margin: 10px 20px;
+  border: 1px solid #eee;
+}
+.highlight .gutter pre {
+  color: #000;
+  font-size: 0.85em;
+}
+code {
+  background: #e3e3e3;
+  text-shadow: 0 1px #fff;
+  padding: 0 0.3em;
+}
+pre code {
+  background: none;
+  text-shadow: none;
+  padding: 0;
+}
+.highlight pre {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+.highlight table {
+  margin: 0;
+  width: auto;
+}
+.highlight td {
+  border: none;
+  padding: 0;
+}
+.highlight figcaption {
+  font-size: 0.85em;
+  color: #000;
+  line-height: 1em;
+  margin-bottom: 1em;
+}
+.highlight figcaption a {
+  float: right;
+}
+.highlight .gutter pre {
+  text-align: right;
+  padding-right: 20px;
+}

@@ -1,26 +1,105 @@
-div.card-container {
+div#card-container {
   display: grid;
   grid-template-columns: auto auto auto;
   grid-column-gap: 50px;
   grid-row-gap: 50px;
 }
-div.card {
+a.card {
+  display: block;
   background-color: #fff;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1), 0 6px 20px 0 rgba(0,0,0,0.01);
   border-radius: 5px;
   padding: 10px;
-}
-div.card a {
   color: #000;
   text-decoration: none;
 }
-div.card a:visited {
+a.card h3 {
+  word-break: break-all;
+}
+a.card div.post-date {
+  font-size: 12px;
+  color: #e3e3e3;
+}
+a.card div.post-content {
+  font-size: 13px;
+  color: #a8a8a8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+a.card:visited {
   color: #000;
   text-decoration: none;
 }
-div.card a:active {
+a.card:active {
   color: #000;
   text-decoration: none;
+}
+div.card a .post-content {
+  font-size: 11px;
+}
+pre,
+.highlight {
+  background: #e3e3e3;
+  padding: 10px;
+  overflow: auto;
+  color: #000;
+  line-height: 24px;
+  border-radius: 10px;
+  margin: 10px 20px;
+  border: 1px solid #eee;
+}
+.highlight .gutter pre {
+  color: #000;
+  font-size: 0.85em;
+}
+code {
+  background: #e3e3e3;
+  text-shadow: 0 1px #fff;
+  padding: 0 0.3em;
+}
+pre code {
+  background: none;
+  text-shadow: none;
+  padding: 0;
+}
+.highlight pre {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+.highlight table {
+  margin: 0;
+  width: auto;
+}
+.highlight td {
+  border: none;
+  padding: 0;
+}
+.highlight figcaption {
+  font-size: 0.85em;
+  color: #000;
+  line-height: 1em;
+  margin-bottom: 1em;
+}
+.highlight figcaption a {
+  float: right;
+}
+.highlight .gutter pre {
+  text-align: right;
+  padding-right: 20px;
+}
+p#post-date {
+  font-size: 13px;
+  color: #e3e3e3;
+  text-align: end;
+}
+a#post-link-home,
+a#post-link-home:visited,
+a#post-link-home:active {
+  color: #000;
+  display: block;
+  margin-top: 30px;
 }
 * {
   box-sizing: border-box;
@@ -57,7 +136,7 @@ nav.nav-container a.link:active {
 header {
   width: 80%;
   border-bottom: 1px solid #000;
-  padding-left: 40px;
+  padding-left: 60px;
 }
 header h1 {
   word-break: break-all;
