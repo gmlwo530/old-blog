@@ -1,7 +1,24 @@
-p#post-date {
+div#post div#post-info {
+  display: flex;
+}
+div#post span.post-tag-name {
+  display: inline-block;
   font-size: 13px;
   color: #e3e3e3;
-  text-align: end;
+  margin-left: 5px;
+  font-style: italic;
+}
+div#post span#post-date {
+  display: inline-block;
+  font-size: 13px;
+  color: #e3e3e3;
+}
+div#post div#post-content {
+  line-height: 25px;
+  margin-top: 30px;
+}
+div#post div#post-content ul li {
+  margin-top: 10px;
 }
 a#post-link-home,
 a#post-link-home:visited,

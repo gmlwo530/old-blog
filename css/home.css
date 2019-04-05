@@ -26,6 +26,17 @@ a.card div.post-content {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-top: 10px;
+}
+a.card div.post-tags {
+  margin-top: 5px;
+}
+a.card div.post-tags span.post-tag-name {
+  display: inline-block;
+  font-size: 13px;
+  color: #e3e3e3;
+  margin-right: 5px;
+  font-style: italic;
 }
 a.card:visited {
   color: #000;
