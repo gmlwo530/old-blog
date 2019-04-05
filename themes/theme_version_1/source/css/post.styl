@@ -1,10 +1,27 @@
 @import "variable.styl"
 
-p#post-date
-  
-  font-size 13px
-  color super-light-gray
-  text-align end
+div#post
+  div#post-info
+    display flex
+
+  span.post-tag-name
+    display inline-block
+    font-size 13px
+    color super-light-gray
+    margin-left 5px
+    font-style italic
+    
+  span#post-date
+    display inline-block
+    font-size 13px
+    color super-light-gray
+
+  div#post-content
+    line-height 25px
+    margin-top 30px
+    ul
+      li
+        margin-top 10px
 
 a#post-link-home, a#post-link-home:visited, a#post-link-home:active
   color black

@@ -8,11 +8,11 @@
     <%- partial('partial/nav') %>
     <%- partial('partial/header') %>
     <article id='article'>
-      <% if (true){ %>
+      <% if (false){ %>
         <h1>준비중...</h1>
       <% } else { %>
         <% if (page.layout === 'about') {%>
-          <%- partial('partial/about') %>
+          <%- partial('about') %>
         <% } else {%>
           <%- body %>
         <% } %>

@@ -6,5 +6,13 @@
   <div class="post-date">
     <%= date(post.date, config.date_format) %>
   </div>
+  <div class="post-tags">
+    <% if (post.tags.length > 0) { %>
+      <% post.tags.each(function(tag) { %>
+        <span class="post-tag-name">#<%- tag.name %></span>
+      <% }) %>
+    <% } %>
+  </div>
+  
 </a>
 

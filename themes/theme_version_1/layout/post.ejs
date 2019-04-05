@@ -1,8 +1,17 @@
-<div id="page-content">
-  <p id="post-date">
-    <%= date(page.date, config.date_format) %>
-  </p>
-  <%- page.content %>
-</div>
+<div id="post">
+  <div id="post-info">
+    <span id="post-date">
+      <%= date(page.date, config.date_format) %>
+    </span>
+    <% if (page.tags.length > 0) { %>
+      <% page.tags.each(function(tag) { %>
+        <span class="post-tag-name">#<%- tag.name %></span>
+      <% }) %>
+    <% } %>
+  </div>
 
-<a id="post-link-home" href='/'>Home</a>
+  <div id="post-content">
+    <%- page.content %>
+  </div>
+</div>
+<a id="post-link-home" href='/'>Back</a>
