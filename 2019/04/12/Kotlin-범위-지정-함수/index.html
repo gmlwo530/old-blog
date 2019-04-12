@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113083768-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-113083768-2');
+    </script>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--Description-->
+
+
+
+
+    <meta name="description" content="Maru&#39;s Blog">
+
+
+<!--Author-->
+
+    <meta name="author" content="CHOI HEE JAE">
+
+
+<!--Open Graph Title-->
+
+    <meta property="og:title" content="[Kotlin] 범위 지정 함수">
+
+
+<!--Open Graph Description-->
+
+    <meta property="og:description" content="Maru&#39;s Blog">
+
+
+<!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Call Me Maru">
+
+<!--Type page-->
+
+    <meta property="og:type" content="article">
+
+
+<!--Page Cover-->
+
+
+
+<!-- Title -->
+
+<title>[Kotlin] 범위 지정 함수 - Call Me Maru</title>
+
+<!-- Bootstrap Core CSS -->
+<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/> -->
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="/css/style.css">
+
+<!-- Gallery -->
+<!-- <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/> -->
+
+<!-- Google Analytics -->
+
+
+<!-- favicon -->
+
+  <link rel="icon" href="/image/favicon.png">
+
+
+  </head>
+
+  <body>
+    <nav class="nav-container">
+  
+    <a class="link" href="/" target="">
+      Home
+    </a>
+  
+    <a class="link" href="/about" target="">
+      About
+    </a>
+  
+    <a class="link" href="https://github.com/gmlwo530" target="_blank">
+      Github
+    </a>
+  
+</nav>
+    <header>
+  <h1>
+    
+      [Kotlin] 범위 지정 함수
+    
+  </h1>
+  
+  
+    
+  
+    
+  
+  
+</header>
+
+    <article id="article">
+      
+        
+          <div id="post">
+  <div id="post-info">
+    <span id="post-date">
+      2019-04-12
+    </span>
+    
+      
+        <span class="post-tag-name">#Kotlin</span>
+      
+        <span class="post-tag-name">#원리</span>
+      
+    
+  </div>
+
+  <div id="post-content">
+    <p>apply, with, let, also, run은 전달받는 인자와 작동 방식, 결과가 매우 비슷하다. 이 5개는 <strong>범위 지정 함수</strong>라고 명칭한다.</p>
+<p>이 함수들은 공통적으로 두가지 구성 요소를 가진다.</p>
+<ul>
+<li>수신 객체</li>
+<li><p><a href="https://kotlinlang.org/docs/reference/lambdas.html#function-literals-with-receiver" target="_blank" rel="noopener">수신 객체 지정 람다</a></p>
+<p>  함수 타입의 receiver이다. 예시 : </p>
+<p>  <code>val sum: Int.(Int) -&gt; Int = { other -&gt; plus(other) }</code></p>
+</li>
+</ul>
+<p><br></p>
+<h3 id="with의-정의"><a href="#with의-정의" class="headerlink" title="with의 정의"></a>with의 정의</h3>  <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">inline</span> <span class="function"><span class="keyword">fun</span> <span class="type">&lt;T, R&gt;</span> <span class="title">with</span><span class="params">(receiver: <span class="type">T</span>, block: <span class="type">T</span>.()</span></span> -&gt; R): R &#123;</span><br><span class="line">    <span class="keyword">return</span> receiver.block()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  receiver는 수신 객체이고, block은 수신 객체 지정 람다이다.</p>
+<p>  수신 객체가 매개 변수 T로 제공된다. 이것을 명시적으로 제공된 수신 객체라고 한다. </p>
+<p>  수신 객체 지정 람다가 T의 확장함수 형태로 코드 블록 내에 수신 객체가 암시적으로 전달 된다.</p>
+<p>  최종적인 반환 값 : 람다를 실행한 결과를 반환한다.</p>
+<ul>
+<li><p><em>확장함수란?</em></p>
+<p>  확장 하려는 대상에 함수를 추가하는 것이다. 예시,</p>
+<pre><code>fun main(args: Array&lt;String&gt;{
+    println(&quot;Hello&quot;.whatIsLonggerString(&quot;Hi&quot;))
+}
+
+fun String.whatIsLonggerString(x: String) : String {
+    return if(this.length &gt; x.length) this else x
+}
+
+//결과값 : Hello
+
+//즉 여기서 &quot;Hello&quot;는 확장 하려는 대상이고, whatIsLonggerString(String)은 확장 함수명이다. 
+</code></pre></li>
+</ul>
+<p><br></p>
+<h3 id="also의-정의"><a href="#also의-정의" class="headerlink" title="also의 정의"></a>also의 정의</h3>  <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">inline</span> <span class="function"><span class="keyword">fun</span> <span class="type">&lt;T&gt;</span> T.<span class="title">also</span><span class="params">(block: (<span class="type">T</span>)</span></span> -&gt; <span class="built_in">Unit</span>): T &#123;</span><br><span class="line">    block(<span class="keyword">this</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  T(수신 객체)의 확장함수로 수신 객체가 암시적으로 제공 된다.</p>
+<p>  수신 객체 지정 람다에 매개 변수 T로 코드 블록 내에 명시적으로 전달 된다.</p>
+<p>  최종적인 반환 값 : 코드 블록 내에 전달된 수식객체를 그대로 다시 반환 한다.</p>
+<p><br></p>
+<h3 id="apply의-정의"><a href="#apply의-정의" class="headerlink" title="apply의 정의"></a>apply의 정의</h3>  <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">inline</span> <span class="function"><span class="keyword">fun</span> <span class="type">&lt;T&gt;</span> T.<span class="title">apply</span><span class="params">(block: <span class="type">T</span>.()</span></span> -&gt; <span class="built_in">Unit</span>): T &#123;</span><br><span class="line">    block()</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  T(수신 객체)의 확장함수로 수신 객체가 암시적으로 제공 된다.</p>
+<p>  수신 객체 지정 람다가 T의 확장함수 형태로 코드 블록 내에 수신 객체가 암시적으로 전달 된다.</p>
+<p>  최종적인 반환 값 : 코드 블록 내에 전달된 수신객체를 그대로 다시 반환 한다.<br><br></p>
+<h3 id="let의-정의"><a href="#let의-정의" class="headerlink" title="let의 정의"></a>let의 정의</h3>  <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">inline</span> <span class="function"><span class="keyword">fun</span> <span class="type">&lt;T, R&gt;</span> T.<span class="title">let</span><span class="params">(block: (<span class="type">T</span>)</span></span> -&gt; R): R &#123;</span><br><span class="line">    <span class="keyword">return</span> block(<span class="keyword">this</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  T(수신 객체)의 확장함수로 수신 객체가 암시적으로 제공 된다.</p>
+<p>  수신 객체 지정 람다에 매개 변수 T로 코드 블록 내에 명시적으로 전달 된다.</p>
+<p>  최종적인 반환 값 : 람다를 실행한 결과를 반환한다.</p>
+<p><br></p>
+<h3 id="run의-정의"><a href="#run의-정의" class="headerlink" title="run의 정의"></a>run의 정의</h3>  <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">inline</span> <span class="function"><span class="keyword">fun</span> <span class="type">&lt;T, R&gt;</span> T.<span class="title">run</span><span class="params">(block: <span class="type">T</span>.()</span></span> -&gt; R): R &#123;</span><br><span class="line">    <span class="keyword">return</span> block()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  T(수신 객체)의 확장함수로 수신 객체가 암시적으로 제공 된다.</p>
+<p>  수신 객체 지정 람다가 T의 확장함수 형태로 코드 블록 내에 수신 객체가 암시적으로 전달 된다.</p>
+<p>  최종적인 반환 값 : 람다를 실행한 결과를 반환한다.</p>
+<p><br></p>
+<h3 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h3><p>5개의 범위 지정 함수는 아래의 3가지 차이점 중 1가지가 서로 다르다고 할 수 있다.</p>
+<ul>
+<li>범위 지정 함수의 호출 시에는 수신 객체가 매개 변수로 명시적으로 전달 되거나 수신 객체의 확장 함수로 암시적 수신 객체로 전달 된다.</li>
+<li>범위 지정 함수 의 수신 객체 지정 람다 에 전달되는 수신 객체가 명시적 매개 변수 로 전달 되거나 수신 객체의 확장 함수로 암시적 수신 객체로 코드 블록 내부로 전달 된다.</li>
+<li>범위 지정 함수의 결과로 수신 객체를 그대로 반환하거나 수신 객체 지정 람다 의 실행 결과를 반환한다.</li>
+</ul>
+<p><br><br>다음 글에서는 위에서 설명한 5개 함수의 예시를 설명하는 글을 정리하겠습니다.</p>
+<hr>
+<p><strong>출처</strong></p>
+<ul>
+<li><a href="https://medium.com/@limgyumin/%EC%BD%94%ED%8B%80%EB%A6%B0-%EC%9D%98-apply-with-let-also-run-%EC%9D%80-%EC%96%B8%EC%A0%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94%EA%B0%80-4a517292df29" target="_blank" rel="noopener">https://medium.com/@limgyumin/코틀린-의-apply-with-let-also-run-은-언제-사용하는가-4a517292df29</a></li>
+<li><a href="https://brunch.co.kr/@mystoryg/19" target="_blank" rel="noopener">https://brunch.co.kr/@mystoryg/19</a></li>
+</ul>
+
+  </div>
+</div>
+<a id="post-link-home" href="/">Back</a>
+        
+      
+      
+    </article>
+    <footer>
+  <span>Copyright 2018. Maru. All rights reserved.</span>
+</footer>
+
+    <div class="clear"></div>
+  </body>
+</html>
