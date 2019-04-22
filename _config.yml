@@ -70,6 +70,8 @@ time_format: HH:mm:ss
 per_page: 10
 pagination_dir: page
 
+google_analytics: UA-113083768-3
+
 Plugins:
 - hexo-deployer-git
 
@@ -83,3 +85,4 @@ theme: theme_version_1
 deploy:
   type: git
   repo: https://github.com/gmlwo530/blog.git
+

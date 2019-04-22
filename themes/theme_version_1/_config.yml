@@ -19,8 +19,6 @@ comments:
   # Disqus comments
   disqus_shortname:
 
-google_analytics:
-
 favicon: /image/favicon.png
 
 github_url: https://github.com/gmlwo530
