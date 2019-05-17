@@ -13,15 +13,16 @@ a.card {
   color: #000;
   text-decoration: none;
 }
-a.card h3 {
+a.card p.post-title {
   word-break: break-all;
+  font-size: 1rem;
 }
 a.card div.post-date {
-  font-size: 12px;
+  font-size: 0.6rem;
   color: #e3e3e3;
 }
 a.card div.post-content {
-  font-size: 13px;
+  font-size: 0.6rem;
   color: #a8a8a8;
   white-space: nowrap;
   overflow: hidden;
@@ -33,7 +34,7 @@ a.card div.post-tags {
 }
 a.card div.post-tags span.post-tag-name {
   display: inline-block;
-  font-size: 13px;
+  font-size: 0.6rem;
   color: #e3e3e3;
   margin-right: 5px;
   font-style: italic;
@@ -51,13 +52,13 @@ div.card a .post-content {
 }
 pre,
 .highlight {
-  background: #e3e3e3;
+  background: #f9f9f9;
   padding: 10px;
   overflow: auto;
   color: #000;
   line-height: 24px;
   border-radius: 10px;
-  margin: 10px 20px;
+  margin: 10px 0px;
   border: 1px solid #eee;
 }
 .highlight .gutter pre {
@@ -65,14 +66,17 @@ pre,
   font-size: 0.85em;
 }
 code {
-  background: #e3e3e3;
+  background: #f9f9f9;
   text-shadow: 0 1px #fff;
-  padding: 0 0.3em;
+  padding: 0.2em 0.5em;
+  border-radius: 3px;
+  border: 1px solid #eee;
 }
 pre code {
   background: none;
   text-shadow: none;
   padding: 0;
+  border: none;
 }
 .highlight pre {
   border: none;
@@ -122,12 +126,11 @@ div#post div#post-content {
 div#post div#post-content ul li {
   margin-top: 10px;
 }
-a#post-link-home,
-a#post-link-home:visited,
-a#post-link-home:active {
+a#post-link-home {
   color: #000;
   display: block;
   margin-top: 30px;
+  text-align: end;
 }
 * {
   box-sizing: border-box;
@@ -182,9 +185,14 @@ article {
 hr {
   opacity: 0.5;
 }
+a:active,
+a:visited {
+  color: #000;
+}
 footer {
   width: 100%;
   padding-bottom: 20px;
+  margin-top: 50px;
 }
 footer span {
   display: block;

@@ -1,12 +1,12 @@
 pre,
 .highlight {
-  background: #e3e3e3;
+  background: #f9f9f9;
   padding: 10px;
   overflow: auto;
   color: #000;
   line-height: 24px;
   border-radius: 10px;
-  margin: 10px 20px;
+  margin: 10px 0px;
   border: 1px solid #eee;
 }
 .highlight .gutter pre {
@@ -14,14 +14,17 @@ pre,
   font-size: 0.85em;
 }
 code {
-  background: #e3e3e3;
+  background: #f9f9f9;
   text-shadow: 0 1px #fff;
-  padding: 0 0.3em;
+  padding: 0.2em 0.5em;
+  border-radius: 3px;
+  border: 1px solid #eee;
 }
 pre code {
   background: none;
   text-shadow: none;
   padding: 0;
+  border: none;
 }
 .highlight pre {
   border: none;

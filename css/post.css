@@ -20,10 +20,9 @@ div#post div#post-content {
 div#post div#post-content ul li {
   margin-top: 10px;
 }
-a#post-link-home,
-a#post-link-home:visited,
-a#post-link-home:active {
+a#post-link-home {
   color: #000;
   display: block;
   margin-top: 30px;
+  text-align: end;
 }

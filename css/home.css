@@ -13,15 +13,16 @@ a.card {
   color: #000;
   text-decoration: none;
 }
-a.card h3 {
+a.card p.post-title {
   word-break: break-all;
+  font-size: 1rem;
 }
 a.card div.post-date {
-  font-size: 12px;
+  font-size: 0.6rem;
   color: #e3e3e3;
 }
 a.card div.post-content {
-  font-size: 13px;
+  font-size: 0.6rem;
   color: #a8a8a8;
   white-space: nowrap;
   overflow: hidden;
@@ -33,7 +34,7 @@ a.card div.post-tags {
 }
 a.card div.post-tags span.post-tag-name {
   display: inline-block;
-  font-size: 13px;
+  font-size: 0.6rem;
   color: #e3e3e3;
   margin-right: 5px;
   font-style: italic;
