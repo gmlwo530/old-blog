@@ -113,7 +113,6 @@
       2019-05-17
     </span>
     
-    
       
         <span class="post-tag-name">#Flutter</span>
       
@@ -129,8 +128,10 @@
 <p>구글이 만든 프레임워크고 밀어 주려고 하는 기술인 거 같아, 경험해 볼 겸 간단한 앱을 만들기로 했습니다.</p>
 <p>이번 글에서는 flutter로 앱을 만들면서 느꼈던 점들을 공유해보겠습니다.</p>
 <p>글은 1편과 2편으로 나누어 작성하겠습니다.</p>
-<p><br></p>
-<h2 id="📑-간단한-기획"><a href="#📑-간단한-기획" class="headerlink" title="📑 간단한 기획"></a>📑 간단한 기획</h2><p>저는 웹에서 토이 프로젝트를 할 때 보통 블로그 형식을 구현했었습니다. 그래서 Flutter로 간단한 메모 앱을 만들어 보기로 했습니다.</p>
+<br>
+## 📑 간단한 기획
+
+<p>저는 웹에서 토이 프로젝트를 할 때 보통 블로그 형식을 구현했었습니다. 그래서 Flutter로 간단한 메모 앱을 만들어 보기로 했습니다.</p>
 <p>하단 내비게이션으로 </p>
 <ol>
 <li>글 쓰는 화면</li>
@@ -143,28 +144,38 @@
 <p>iOS 앱을 만들고 싶다면, MacOS에서 Xcode를 설치해야 하고 따로 설정을 해줘야 합니다. 자세한 내용은 Doc을 <a href="https://flutter.dev/docs/get-started/install/macos" target="_blank" rel="noopener">참고</a>하시면 됩니다.</p>
 <p>문서에서 Editor는 Android Studio와 Visual Studio Code를 추천합니다. Android Studio는 Plugin을 Visual Studio Code는 Extension을 설치합니다.</p>
 <p>저는 Android Studio를 사용했습니다.</p>
-<p>설치가 다 끝나고 flutter 명령어인<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flutter doctor</span><br></pre></td></tr></table></figure></p>
+<p>설치가 다 끝나고 flutter 명령어인</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">flutter doctor<br></code></pre></td></tr></table></figure>
+
 <p>를 터미널에서 실행하면 flutter 개발에 필요한 사항들이 설치 되었는지 확인 할 수 있습니다.<br>만약 안드로이드 앱으로만 개발할 예정이면, flutter를 위한 Xcode 설치가 안되어 있어도 flutter는 문제 없이 돌아갑니다.</p>
 <p>이제 flutter 개발을 위한 준비가 끝났습니다.</p>
-<p><br></p>
-<h2 id="🔥-Hot-Reload"><a href="#🔥-Hot-Reload" class="headerlink" title="🔥 Hot Reload"></a>🔥 Hot Reload</h2><p>첫 프로젝트를 생성하면, 예제 코드가 있길래 바로 빌드를 해봤습니다.</p>
+<br>
+## 🔥 Hot Reload
+
+<p>첫 프로젝트를 생성하면, 예제 코드가 있길래 바로 빌드를 해봤습니다.</p>
 <p>빌드 속도는 일반적으로 AOS, iOS를 빌드 할 때랑 비슷한 속도로 빌드 되었습니다.</p>
 <p>이렇게 느린 빌드 속도를 위해 flutter도 react-native처럼 <strong>Hot Reload</strong> 기능(개발 속도를 빠르게 해주는 아주 좋은 기능입니다)을 제공 해줍니다.</p>
 <p>앱 개발 경험이 없으신 분들을 위해 살짝 저의 경험을 적어보자면… iOS 빌드 속도가 너무 느리다 보니깐 같이 개발하던 개발자 분과 “코드를 몇 줄을 고치고 나서 빌드를 해야 할까?”라는 주제로 토론을 했던 경험이 있습니다;;</p>
 <p><em>Hot Reload</em> 기능은 <em>크로스 플랫폼 동시</em> 개발 다음으로 flutter와 react-native를 선택해야하는 이유가 될거 같습니다.</p>
-<p><br></p>
-<h2 id="🎯-Dart-알아보기"><a href="#🎯-Dart-알아보기" class="headerlink" title="🎯 Dart 알아보기"></a>🎯 Dart 알아보기</h2><p>Flutter는 <a href="https://dart.dev/" target="_blank" rel="noopener">Dart</a>라는 언어를 사용합니다.<em>(둘 다 구글에서 만들었다고 합니다…)</em></p>
+<br>
+## 🎯 Dart 알아보기 
+
+<p>Flutter는 <a href="https://dart.dev/" target="_blank" rel="noopener">Dart</a>라는 언어를 사용합니다.<em>(둘 다 구글에서 만들었다고 합니다…)</em></p>
 <p>Dart의 첫 인상은 Java 같기도 하고 JS 같기도 한 언어였습니다.</p>
 <p>Dart에서 좀 인상 깊었던 표현은 <em>private</em>을 표현하는 방법입니다. Java와 비교해도록 하겠습니다.</p>
 <p>Java는 private을 다음과 같이 표현합니다.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Java</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> num = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight Java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Java"><span class="hljs-comment">// Java</span><br><span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> num = <span class="hljs-number">0</span>;<br></code></pre></td></tr></table></figure>
+
 <p>Dart는 private을 명시해주지 않고, 변수에 <code>_</code>를 붙여줍니다.</p>
-<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Dart</span></span><br><span class="line"><span class="built_in">int</span> _num = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight Dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Dart"><span class="hljs-comment">// Dart</span><br><span class="hljs-built_in">int</span> _num = <span class="hljs-number">0</span>;<br></code></pre></td></tr></table></figure>
+
 <p>개인적으로는 마음에 들었던 표현이었습니다.</p>
 <p>Dart를 간단하게만 훑어보고, 기능 구현을 우선 했기 때문에 Dart에 대한 자세한 얘기는 다음에 기회가 있다면 글로 적어보도록 하겠습니다.</p>
-<p><br></p>
+<br>
+
 <p>항상 개발을 위한 환경 세팅은 쉽게 끝나지 않았습니다. 다행히 flutter 환경 세팅은 특별한 문제 없이 진행되었던 거 같습니다.<br>이번 글은 여기서 마치고, 기능 개발과 UI 구현에 대한 내용은 2편에서 다루도록 하겠습니다. 감사합니다.</p>
-<p><br></p>
+<br>
+
 <hr>
 <p><strong>출처</strong></p>
 <ul>
@@ -178,21 +189,25 @@
 <div id="disqus_thread"></div>
 
 <script type="text/javascript">
-  var disqus_config = function () {
-  this.page.url = "https://callmemaru.com/2019/05/17/Flutter-토이-프로젝트-후기-1/";  // Replace PAGE_URL with your page's canonical URL variable
-  this.page.identifier = "https://callmemaru.com/2019/05/17/Flutter-토이-프로젝트-후기-1/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-  };
+  var host = window.location.hostname;
+  if (host !== "localhost"){
+    var disqus_config = function () {
+    this.page.url = "https://callmemaru.com/2019/05/17/Flutter-토이-프로젝트-후기-1/";  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = "https://callmemaru.com/2019/05/17/Flutter-토이-프로젝트-후기-1/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
 
-  (function() { // DON'T EDIT BELOW THIS LINE
+    (function() { // DON'T EDIT BELOW THIS LINE
 
-  var d = document, s = d.createElement('script');
-  s.src = 'https://callmemaru.disqus.com/embed.js';
-  s.setAttribute('data-timestamp', +new Date());
-  (d.head || d.body).appendChild(s);
-  })();
+    var d = document, s = d.createElement('script');
+    s.src = 'https://callmemaru.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+  }
 
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
         
       
       

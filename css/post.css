@@ -17,6 +17,11 @@ div#post div#post-content {
   line-height: 25px;
   margin-top: 30px;
 }
+div#post div#post-content img {
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+}
 div#post div#post-content ul li {
   margin-top: 10px;
 }
