@@ -13,7 +13,7 @@ timezone: Asia/Seoul
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://callmemaru.com
+url: https://callmemaru.com
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -39,6 +39,7 @@ post_asset_folder: false
 relative_link: false
 future: true
 highlight:
+  hljs: true
   enable: true
   line_number: true
   auto_detect: false
@@ -85,4 +86,3 @@ theme: theme_version_1
 deploy:
   type: git
   repo: https://github.com/gmlwo530/blog.git
-
