@@ -134,8 +134,8 @@
 </li>
 </ul>
 <br>
-### with의 정의
-  <figure class="highlight Kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs Kotlin"><span class="hljs-keyword">inline</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-type">&lt;T, R&gt;</span> <span class="hljs-title">with</span><span class="hljs-params">(receiver: <span class="hljs-type">T</span>, block: <span class="hljs-type">T</span>.()</span></span> -&gt; R): R &#123;<br>    <span class="hljs-keyword">return</span> receiver.block()<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="with의-정의"><a href="#with의-정의" class="headerlink" title="with의 정의"></a>with의 정의</h3>  <figure class="highlight Kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs Kotlin"><span class="hljs-keyword">inline</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-type">&lt;T, R&gt;</span> <span class="hljs-title">with</span><span class="hljs-params">(receiver: <span class="hljs-type">T</span>, block: <span class="hljs-type">T</span>.()</span></span> -&gt; R): R &#123;<br>    <span class="hljs-keyword">return</span> receiver.block()<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>  receiver는 수신 객체이고, block은 수신 객체 지정 람다이다.</p>
 <p>  수신 객체가 매개 변수 T로 제공된다. 이것을 명시적으로 제공된 수신 객체라고 한다. </p>
@@ -157,15 +157,15 @@ fun String.whatIsLonggerString(x: String) : String {
 //즉 여기서 &quot;Hello&quot;는 확장 하려는 대상이고, whatIsLonggerString(String)은 확장 함수명이다. </code></pre></li>
 </ul>
 <br>
-### also의 정의
-  <figure class="highlight Kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs Kotlin"><span class="hljs-keyword">inline</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-type">&lt;T&gt;</span> T.<span class="hljs-title">also</span><span class="hljs-params">(block: (<span class="hljs-type">T</span>)</span></span> -&gt; <span class="hljs-built_in">Unit</span>): T &#123;<br>    block(<span class="hljs-keyword">this</span>)<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="also의-정의"><a href="#also의-정의" class="headerlink" title="also의 정의"></a>also의 정의</h3>  <figure class="highlight Kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs Kotlin"><span class="hljs-keyword">inline</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-type">&lt;T&gt;</span> T.<span class="hljs-title">also</span><span class="hljs-params">(block: (<span class="hljs-type">T</span>)</span></span> -&gt; <span class="hljs-built_in">Unit</span>): T &#123;<br>    block(<span class="hljs-keyword">this</span>)<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span><br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>  T(수신 객체)의 확장함수로 수신 객체가 암시적으로 제공 된다.</p>
 <p>  수신 객체 지정 람다에 매개 변수 T로 코드 블록 내에 명시적으로 전달 된다.</p>
 <p>  최종적인 반환 값 : 코드 블록 내에 전달된 수식객체를 그대로 다시 반환 한다.</p>
 <br>
-### apply의 정의
-  <figure class="highlight Kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs Kotlin"><span class="hljs-keyword">inline</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-type">&lt;T&gt;</span> T.<span class="hljs-title">apply</span><span class="hljs-params">(block: <span class="hljs-type">T</span>.()</span></span> -&gt; <span class="hljs-built_in">Unit</span>): T &#123;<br>    block()<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="apply의-정의"><a href="#apply의-정의" class="headerlink" title="apply의 정의"></a>apply의 정의</h3>  <figure class="highlight Kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs Kotlin"><span class="hljs-keyword">inline</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-type">&lt;T&gt;</span> T.<span class="hljs-title">apply</span><span class="hljs-params">(block: <span class="hljs-type">T</span>.()</span></span> -&gt; <span class="hljs-built_in">Unit</span>): T &#123;<br>    block()<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span><br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>  T(수신 객체)의 확장함수로 수신 객체가 암시적으로 제공 된다.</p>
 <p>  수신 객체 지정 람다가 T의 확장함수 형태로 코드 블록 내에 수신 객체가 암시적으로 전달 된다.</p>
@@ -176,24 +176,23 @@ fun String.whatIsLonggerString(x: String) : String {
 <p>  수신 객체 지정 람다에 매개 변수 T로 코드 블록 내에 명시적으로 전달 된다.</p>
 <p>  최종적인 반환 값 : 람다를 실행한 결과를 반환한다.</p>
 <br>
-### run의 정의
-  <figure class="highlight Kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs Kotlin"><span class="hljs-keyword">inline</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-type">&lt;T, R&gt;</span> T.<span class="hljs-title">run</span><span class="hljs-params">(block: <span class="hljs-type">T</span>.()</span></span> -&gt; R): R &#123;<br>    <span class="hljs-keyword">return</span> block()<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="run의-정의"><a href="#run의-정의" class="headerlink" title="run의 정의"></a>run의 정의</h3>  <figure class="highlight Kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs Kotlin"><span class="hljs-keyword">inline</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-type">&lt;T, R&gt;</span> T.<span class="hljs-title">run</span><span class="hljs-params">(block: <span class="hljs-type">T</span>.()</span></span> -&gt; R): R &#123;<br>    <span class="hljs-keyword">return</span> block()<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>  T(수신 객체)의 확장함수로 수신 객체가 암시적으로 제공 된다.</p>
 <p>  수신 객체 지정 람다가 T의 확장함수 형태로 코드 블록 내에 수신 객체가 암시적으로 전달 된다.</p>
 <p>  최종적인 반환 값 : 람다를 실행한 결과를 반환한다.</p>
 <br>
-### 정리
-5개의 범위 지정 함수는 아래의 3가지 차이점 중 1가지가 서로 다르다고 할 수 있다.
 
+<h3 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h3><p>5개의 범위 지정 함수는 아래의 3가지 차이점 중 1가지가 서로 다르다고 할 수 있다.</p>
 <ul>
 <li>범위 지정 함수의 호출 시에는 수신 객체가 매개 변수로 명시적으로 전달 되거나 수신 객체의 확장 함수로 암시적 수신 객체로 전달 된다.</li>
 <li>범위 지정 함수 의 수신 객체 지정 람다 에 전달되는 수신 객체가 명시적 매개 변수 로 전달 되거나 수신 객체의 확장 함수로 암시적 수신 객체로 코드 블록 내부로 전달 된다.</li>
 <li>범위 지정 함수의 결과로 수신 객체를 그대로 반환하거나 수신 객체 지정 람다 의 실행 결과를 반환한다.</li>
 </ul>
 <br>
-다음 글에서는 위에서 설명한 5개 함수의 예시를 설명하는 글을 정리하겠습니다.
 
+<p>다음 글에서는 위에서 설명한 5개 함수의 예시를 설명하는 글을 정리하겠습니다.</p>
 <hr>
 <p><strong>출처</strong></p>
 <ul>
