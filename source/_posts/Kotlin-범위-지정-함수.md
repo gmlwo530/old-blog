@@ -20,6 +20,7 @@ apply, with, let, also, run은 전달받는 인자와 작동 방식, 결과가 �
     `val sum: Int.(Int) -> Int = { other -> plus(other) }`
 
 <br>
+
 ### with의 정의
   ```Kotlin
     inline fun <T, R> with(receiver: T, block: T.() -> R): R {
@@ -52,6 +53,7 @@ apply, with, let, also, run은 전달받는 인자와 작동 방식, 결과가 �
         //즉 여기서 "Hello"는 확장 하려는 대상이고, whatIsLonggerString(String)은 확장 함수명이다. 
 
 <br>
+
 ### also의 정의
   ```Kotlin
     inline fun <T> T.also(block: (T) -> Unit): T {
@@ -67,6 +69,7 @@ apply, with, let, also, run은 전달받는 인자와 작동 방식, 결과가 �
   최종적인 반환 값 : 코드 블록 내에 전달된 수식객체를 그대로 다시 반환 한다.
 
 <br>
+
 ### apply의 정의
   ```Kotlin
     inline fun <T> T.apply(block: T.() -> Unit): T {
@@ -81,6 +84,7 @@ apply, with, let, also, run은 전달받는 인자와 작동 방식, 결과가 �
 
   최종적인 반환 값 : 코드 블록 내에 전달된 수신객체를 그대로 다시 반환 한다.
 <br>
+
 ### let의 정의
   ```Kotlin
     inline fun <T, R> T.let(block: (T) -> R): R {
@@ -95,6 +99,7 @@ apply, with, let, also, run은 전달받는 인자와 작동 방식, 결과가 �
   최종적인 반환 값 : 람다를 실행한 결과를 반환한다.
 
 <br>
+
 ### run의 정의
   ```Kotlin
     inline fun <T, R> T.run(block: T.() -> R): R {
@@ -109,6 +114,7 @@ apply, with, let, also, run은 전달받는 인자와 작동 방식, 결과가 �
   최종적인 반환 값 : 람다를 실행한 결과를 반환한다.
 
 <br>
+
 ### 정리
 5개의 범위 지정 함수는 아래의 3가지 차이점 중 1가지가 서로 다르다고 할 수 있다.
 
@@ -117,6 +123,7 @@ apply, with, let, also, run은 전달받는 인자와 작동 방식, 결과가 �
 - 범위 지정 함수의 결과로 수신 객체를 그대로 반환하거나 수신 객체 지정 람다 의 실행 결과를 반환한다.
 
 <br>
+
 다음 글에서는 위에서 설명한 5개 함수의 예시를 설명하는 글을 정리하겠습니다.
 
 ---

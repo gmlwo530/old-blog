@@ -20,6 +20,7 @@ date: 2019-05-17 10:42:36
 글은 1편과 2편으로 나누어 작성하겠습니다.
 
 <br>
+
 ## 📑 간단한 기획
 
 저는 웹에서 토이 프로젝트를 할 때 보통 블로그 형식을 구현했었습니다. 그래서 Flutter로 간단한 메모 앱을 만들어 보기로 했습니다.
@@ -31,6 +32,7 @@ date: 2019-05-17 10:42:36
 
 세 화면에 접근할 수 있게 하고 글 데이터는 sqlite를 사용하여 저장하도록 기획했습니다. 디자인은 따로 하지 않았습니다.
 <br>
+
 ## 👾 Flutter 설치
 
 설치는 Flutter Doc에서 쉽게 할 수 있습니다. ([https://flutter.dev/docs/get-started/install](https://flutter.dev/docs/get-started/install))
@@ -53,6 +55,7 @@ flutter doctor
 이제 flutter 개발을 위한 준비가 끝났습니다.
 
 <br>
+
 ## 🔥 Hot Reload
 
 첫 프로젝트를 생성하면, 예제 코드가 있길래 바로 빌드를 해봤습니다.
@@ -66,6 +69,7 @@ flutter doctor
 *Hot Reload* 기능은 *크로스 플랫폼 동시* 개발 다음으로 flutter와 react-native를 선택해야하는 이유가 될거 같습니다.
 
 <br>
+
 ## 🎯 Dart 알아보기 
 
 Flutter는 [Dart](https://dart.dev/)라는 언어를 사용합니다.*(둘 다 구글에서 만들었다고 합니다...)*
