@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--Description-->
+
+
+
+
+    <meta name="description" content="Maru&#39;s Blog">
+
+
+<!--Author-->
+
+    <meta name="author" content="CHOI HEE JAE">
+
+
+<!--Open Graph Title-->
+
+    <meta property="og:title" content="[Flutter] 토이 프로젝트 후기 - (2)">
+
+
+<!--Open Graph Description-->
+
+    <meta property="og:description" content="Maru&#39;s Blog">
+
+
+<!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Call Me Maru">
+
+<!--Type page-->
+
+    <meta property="og:type" content="article">
+
+
+<!--Page Cover-->
+
+
+
+<!-- Title -->
+
+<title>[Flutter] 토이 프로젝트 후기 - (2) - Call Me Maru</title>
+
+<!-- Bootstrap Core CSS -->
+<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/> -->
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="/css/style.css">
+
+<!-- Gallery -->
+<!-- <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/> -->
+
+<!-- Google Analytics -->
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113083768-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-113083768-3');
+  </script>
+
+
+<!-- favicon -->
+
+  <link rel="icon" href="/image/favicon.png">
+
+
+  </head>
+
+  <body>
+    <nav class="nav-container">
+  
+    <a class="link" href="/" target>
+      Home
+    </a>
+  
+    <a class="link" href="/about" target>
+      About
+    </a>
+  
+    <a class="link" href="https://github.com/gmlwo530" target="_blank">
+      Github
+    </a>
+  
+</nav>
+    <header>
+  <h1>
+    
+      [Flutter] 토이 프로젝트 후기 - (2)
+    
+  </h1>
+  
+  
+    
+  
+    
+  
+  
+</header>
+
+    <article id="article">
+      
+        
+          <div id="post">
+  <div id="post-info">
+    <span id="post-date">
+      2019-05-22
+    </span>
+    
+      
+        <span class="post-tag-name">#Flutter</span>
+      
+        <span class="post-tag-name">#이야기</span>
+      
+    
+  </div>
+
+  <div id="post-content">
+    <p>1편에서 이어서 2편은 프로젝트를 진행 과정을 소개하고 후기를 마무리 하겠습니다.</p>
+<h2 id="🗂-Flutter"><a href="#🗂-Flutter" class="headerlink" title="🗂 Flutter"></a>🗂 Flutter</h2><ol>
+<li><strong>Widget</strong></li>
+</ol>
+<p>Flutter에서 대부분의 UI들은 Widget Class에 속해 있습니다.<br>예를 들어, <a href="https://api.flutter.dev/flutter/material/AlertDialog-class.html" target="_blank" rel="noopener">AlertDialog</a> 문서를 보면 AlertDialog가 어디에 속해있는지 확인 할 수 있습니다.</p>
+<ol start="2">
+<li><strong>StatelessWidget &amp; StatefulWidget</strong></li>
+</ol>
+<p>React를 사용해보신 개발자 분들에게는 친숙한 개념일 수도 있습니다. Flutter의 모든 UI 즉 Widget은 상태(state)를 가집니다.</p>
+<p>Widget이 StatelessWidget을 상속 할 때는 상태가 변하지 않아도 되는 UI로 그려집니다.</p>
+<p>Widget이 StatefullWidget을 상속 할 때는 상태가 변하는 UI로 그려집니다. Flutter에서 제공하는 <code>setState</code> 함수를 통해서 widget의 상태를 변화 시킬 수 있습니다. (최근에 알게 되었는데 setState 말고도 widget의 상태를 관리해주는 방법들이 제공된다고 합니다. 특히 <a href="https://github.com/google/flutter-provide" target="_blank" rel="noopener">provider</a>라는 프레임워크가 2019 Google I/O에서 언급이 되었는데, 굉장히 잘 만들었으니 꼭 사용하라고 언급 되었습니다.)</p>
+<p>이전에 react 개발 경험이 있어 state가 낯설지 않았습니다. react 개발을 했을 때 또 느꼈지만, ui의 state를 관리해줄 수 있다는 점은 굉장히 좋은 방법인거 같습니다.</p>
+<br>
+
+<h2 id="🗄-Save-Data"><a href="#🗄-Save-Data" class="headerlink" title="🗄 Save Data"></a>🗄 Save Data</h2><p>앱을 간단하게 하기 위해서 데이터 저장은 sqlite를 이용해서 디바이스 내부에 저장히기로 결정했습니다. Flutter에서 sqlite를 이용하는 방법을 찾아보니, package를 이용하는게 제일 편리하다고 판단하여, <a href="https://github.com/tekartik/sqflite" target="_blank" rel="noopener">sqflite</a>라는 package를 추가 했습니다.</p>
+<p>flutter가 입에 오르기 시작한지 얼마되지 않은 만큼, package들도 생겨나기 시작한지 얼마 안된 거 같습니다. star 갯수나 doc의 완성도가 좀 떨어지는 느낌을 받았지만 package 덕분에 쉽게 sqlite를 사용 할 수 있었습니다.</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs dart"><span class="hljs-keyword">import</span> <span class="hljs-string">'package:path/path.dart'</span>;<br><span class="hljs-keyword">import</span> <span class="hljs-string">'package:path_provider/path_provider.dart'</span>;<br><span class="hljs-keyword">import</span> <span class="hljs-string">'package:sqflite/sqflite.dart'</span>;<br><br>...<br><br>initDB() <span class="hljs-keyword">async</span> &#123;<br>  ...<br><br>  <span class="hljs-keyword">return</span> <span class="hljs-keyword">await</span> openDatabase(path, version: <span class="hljs-number">1</span>, onOpen: (db) &#123;<br>  &#125;, onCreate: (Database db, <span class="hljs-built_in">int</span> version) <span class="hljs-keyword">async</span> &#123;<br>    <span class="hljs-keyword">await</span> db.execute(<span class="hljs-string">"CREATE TABLE Line ("</span><br>        <span class="hljs-string">"id INTEGER PRIMARY KEY,"</span><br>        <span class="hljs-string">"content TEXT,"</span><br>        <span class="hljs-string">"created_at INTEGER"</span><br>        <span class="hljs-string">")"</span>);<br>  &#125;);<br>&#125;<br><br>getLine(<span class="hljs-built_in">int</span> id) <span class="hljs-keyword">async</span> &#123;<br>  <span class="hljs-keyword">final</span> db = <span class="hljs-keyword">await</span> database;<br>  <span class="hljs-keyword">var</span> res = <span class="hljs-keyword">await</span> db.query(<span class="hljs-string">"Line"</span>, where: <span class="hljs-string">"id = ?"</span>, whereArgs: [id]);<br>  <span class="hljs-keyword">return</span> res.isNotEmpty ? Line.fromJson(res.first) : <span class="hljs-keyword">null</span> ;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>package를 사용해도 sql 문구를 통해 Database를 만들고, data를 불러와야 했습니다. <code>,</code> 같은 사소한 오타가 적지 않게 개발 시간을 많이 잡아 먹었습니다.</li>
+<li>data를 가지고 와서 json으로 변경을 해주어야 했습니다. 이 과정에 <code>dynamic</code>, <code>factory</code>라는 개념을 사용 했는데, 정확히 이해를 하지 못하고 구현했습니다. 나중에 기회가 되면 공부를 해봐야겠습니다.</li>
+</ul>
+<p>프로젝트하면서 제일 스트레스 받고, 시간이 오래걸렸던 부분이였습니다. 특히 db를 불러오려면 dart의<br><a href="https://dart.dev/tutorials/language/futures" target="_blank" rel="noopener">Future</a> 개념을 이해해야 하는데, 빨리 끝내고 싶어 모르는 상태에서 개발한다고 삽질 좀 했습니다. 역시 시간을 아낄려면, 미리 공부를 해야합니다…</p>
+<h2 id="🏠-Home"><a href="#🏠-Home" class="headerlink" title="🏠 Home"></a>🏠 Home</h2><p>앱을 켰을 때 첫 화면은 글을 바로 쓸 수 있게 만들었습니다.</p>
+<h2 id="️️️️📄-List"><a href="#️️️️📄-List" class="headerlink" title="️️️️📄 List"></a>️️️️📄 List</h2><p>작성 된 글을 볼 수 있는 페이지입니다. 수정은 불가하고, 삭제만 가능합니다.<br>처음 기획이 한 줄 메모장이여서 각 메모마다 자세히 보는 기능은 만들지 않았습니다.</p>
+<h2 id="ℹ-App-Icon"><a href="#ℹ-App-Icon" class="headerlink" title="ℹ App Icon"></a>ℹ App Icon</h2><p>App Icon은 App Icon을 설정하기 위해서는 iOS, Android에 직접 접근하여 각 플랫폼에 맞게 설정 해줘야 합니다.</p>
+<p>설정하는 것은 어렵지 않지만, 한 번에 관리 하고 싶다면 아래 package로 flutter 프로젝트 단에서 관리 할 수 있습니다.</p>
+<p><a href="https://pub.dev/packages/flutter_launcher_icons" target="_blank" rel="noopener">flutter_launcher_icons</a></p>
+<br>
+새로운 언어, 낯선 UI 체계 등 다양한 부분에서 새로운 도전이였습니다. 항상 새로운 것을 하는 것은 재밌지만, 본인의 것으로 만들려면 꾸준히 공부를 해야합니다.
+Dart라는 언어가 별로 매력적이지도 않았고, flutter가 아직 많이 성장하지도 않아서 flutter 프로젝트는 앞으로 특별한 경우가 있지 않은 이상 안 하고 싶었습니다.
+
+<p><img src="/image/Flutter-%ED%86%A0%EC%9D%B4-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%9B%84%EA%B8%B0-2/flutter-image-3.png" alt></p>
+<p>그런데 2019 Google I/O에서 flutter로 iOS, Android, Desktop App, 그리고 Web을 한 번에 개발 할 수 있게 할거라는 발표를 듣고, 생각이 바꼈습니다.</p>
+<p>안 그래도 iOS 개발을 해야 하는 프로젝트가 있었는데, flutter로 개발해도 재밌을거 같습니다.</p>
+<p>flutter가 꽃길만 걷길 기원하면서 이번 글 마치겠습니다. 감사합니다</p>
+<hr>
+<p><strong>참고</strong></p>
+<ul>
+<li><a href="https://developers.googleblog.com/2019/05/Flutter-io19.html" target="_blank" rel="noopener">https://developers.googleblog.com/2019/05/Flutter-io19.html</a></li>
+</ul>
+
+  </div>
+</div>
+<a id="post-link-home" href="/">&#8592; Back</a>
+<br><br><br>
+<div id="disqus_thread"></div>
+
+<script type="text/javascript">
+  var host = window.location.hostname;
+  if (host !== "localhost"){
+    var disqus_config = function () {
+    this.page.url = "https://callmemaru.com/2019/05/22/Flutter-토이-프로젝트-후기-2/";  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = "https://callmemaru.com/2019/05/22/Flutter-토이-프로젝트-후기-2/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+
+    var d = document, s = d.createElement('script');
+    s.src = 'https://callmemaru.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+  }
+
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+        
+      
+      
+    </article>
+    <footer>
+  <span>Copyright 2018. Maru. All rights reserved.</span>
+</footer>
+
+    <div class="clear"></div>
+  </body>
+</html>
