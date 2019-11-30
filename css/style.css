@@ -137,6 +137,9 @@ a#post-link-home {
   margin-top: 30px;
   text-align: end;
 }
+div#history ul {
+  line-height: 30px;
+}
 * {
   box-sizing: border-box;
 }
