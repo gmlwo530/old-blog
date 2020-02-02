@@ -1,10 +1,9 @@
 ---
-title: '[Kotlin Tour - 공식 문서 편] #0 Intro'
+title: "[Maru의 Kotlin Tour - 공식 문서 편] #0 Intro"
 tags:
   - Kotlin
 date: 2020-02-02 17:30:14
 ---
-
 
 들어가기 앞서 코틀린의 정의와 Command Line Compiler를 설치하는 법을 알아보겠습니다.
 
@@ -28,7 +27,7 @@ $ brew update
 $ brew install kotlin
 ```
 
-<br>
+<br><br>
 
 ### 실행 해보기
 

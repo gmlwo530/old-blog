@@ -1,11 +1,10 @@
 ---
-title: '[Kotlin Tour] Prologue'
+title: "[Maru의 Kotlin Tour] Prologue"
 tags:
   - Kotlin
   - Prologue
 date: 2020-02-02 17:28:36
 ---
-
 
 Kotlin이라는 언어를 공부 해보겠습니다.
 
