@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--Description-->
+
+
+
+
+    <meta name="description" content="Maru&#39;s Blog">
+
+
+<!--Author-->
+
+    <meta name="author" content="CHOI HEE JAE">
+
+
+<!--Open Graph Title-->
+
+    <meta property="og:title" content="Flutter State Management - Provider">
+
+
+<!--Open Graph Description-->
+
+    <meta property="og:description" content="Maru&#39;s Blog">
+
+
+<!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Call Me Maru">
+
+<!--Type page-->
+
+    <meta property="og:type" content="article">
+
+
+<!--Page Cover-->
+
+
+
+<!-- Title -->
+
+<title>Flutter State Management - Provider - Call Me Maru</title>
+
+<!-- Bootstrap Core CSS -->
+<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/> -->
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="/css/style.css">
+
+<!-- Gallery -->
+<!-- <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/> -->
+
+<!-- Google Analytics -->
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113083768-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-113083768-3');
+  </script>
+
+
+<!-- favicon -->
+
+  <link rel="icon" href="/image/favicon.png">
+
+
+  </head>
+
+  <body>
+    <nav class="nav-container">
+  
+    <a class="link" href="/" target>
+      Home
+    </a>
+  
+    <a class="link" href="/about" target>
+      About
+    </a>
+  
+    <a class="link" href="/history" target>
+      History
+    </a>
+  
+    <a class="link" href="https://github.com/gmlwo530" target="_blank">
+      Github
+    </a>
+  
+</nav>
+    <header>
+  <h1>
+    
+      Flutter State Management - Provider
+    
+  </h1>
+  
+  
+    
+  
+    
+  
+  
+</header>
+
+    <article id="article">
+      
+        
+          <div id="post">
+  <div id="post-info">
+    <span id="post-date">
+      2020-01-12
+    </span>
+    
+      
+        <span class="post-tag-name">#Flutter</span>
+      
+    
+  </div>
+
+  <div id="post-content">
+    <p>Flutter에는 State가 있다. 사용자에 의해 이벤트가 발생 했을 때 state를 이용하여 UI를 업데이트 해준다.</p>
+<p>예를 들자면, 우리가 Flutter Project를 처음 생성 했을 때 기본으로 있는 count 앱을 들 수 있다.<br>사용자가 Floating Button인 + 버튼을 누르면 화면 중앙에 있는 숫자가 1씩 증가한다.<br>아래 코드와 같이 state를 이용하여 <code>_counter</code> 변수를 업데이트하고 UI를 업데이틑 하는 것을 확인 할 수 있다.</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs dart"><span class="hljs-built_in">int</span> _counter = <span class="hljs-number">0</span>;<br><br><span class="hljs-keyword">void</span> _increment()&#123;<br>  setState( () &#123;<br>    _counter++;<br>  &#125;);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+  </div>
+</div>
+<a id="post-link-home" href="/">&#8592; Back</a>
+<br><br><br>
+<div id="disqus_thread"></div>
+
+<script type="text/javascript">
+  var host = window.location.hostname;
+  if (host !== "localhost"){
+    var disqus_config = function () {
+    this.page.url = "https://callmemaru.com/2020/01/12/Flutter-Statement-Manager-Provider/";  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = "https://callmemaru.com/2020/01/12/Flutter-Statement-Manager-Provider/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+
+    var d = document, s = d.createElement('script');
+    s.src = 'https://callmemaru.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+  }
+
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+        
+      
+      
+    </article>
+    <footer>
+  <span>Copyright 2018. Maru. All rights reserved.</span>
+</footer>
+
+    <div class="clear"></div>
+  </body>
+</html>
