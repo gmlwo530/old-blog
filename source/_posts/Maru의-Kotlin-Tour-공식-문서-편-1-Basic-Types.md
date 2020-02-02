@@ -1,8 +1,10 @@
 ---
-title: "[Maru의 Kotlin Tour - 공식 문서 편] #1 Basic Types"
+title: '[Maru의 Kotlin Tour - 공식 문서 편] #1 Basic Types'
 tags:
   - Kotlin
+date: 2020-02-02 23:23:40
 ---
+
 
 해당 문서 첫 문장에 참 친근한 문장이 있다.
 
