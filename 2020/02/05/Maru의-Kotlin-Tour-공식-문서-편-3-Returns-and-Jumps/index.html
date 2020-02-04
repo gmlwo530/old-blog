@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--Description-->
+
+
+
+
+    <meta name="description" content="Maru&#39;s Blog">
+
+
+<!--Author-->
+
+    <meta name="author" content="CHOI HEE JAE">
+
+
+<!--Open Graph Title-->
+
+    <meta property="og:title" content="[Maru의 Kotlin Tour - 공식 문서 편] #3 Returns and Jumps">
+
+
+<!--Open Graph Description-->
+
+    <meta property="og:description" content="Maru&#39;s Blog">
+
+
+<!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Call Me Maru">
+
+<!--Type page-->
+
+    <meta property="og:type" content="article">
+
+
+<!--Page Cover-->
+
+
+
+<!-- Title -->
+
+<title>[Maru의 Kotlin Tour - 공식 문서 편] #3 Returns and Jumps - Call Me Maru</title>
+
+<!-- Bootstrap Core CSS -->
+<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/> -->
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="/css/style.css">
+
+<!-- Gallery -->
+<!-- <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/> -->
+
+<!-- Google Analytics -->
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113083768-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-113083768-3');
+  </script>
+
+
+<!-- favicon -->
+
+  <link rel="icon" href="/image/favicon.png">
+
+
+  </head>
+
+  <body>
+    <nav class="nav-container">
+  
+    <a class="link" href="/" target>
+      Home
+    </a>
+  
+    <a class="link" href="/about" target>
+      About
+    </a>
+  
+    <a class="link" href="/history" target>
+      History
+    </a>
+  
+    <a class="link" href="https://github.com/gmlwo530" target="_blank">
+      Github
+    </a>
+  
+</nav>
+    <header>
+  <h1>
+    
+      [Maru의 Kotlin Tour - 공식 문서 편] #3 Returns and Jumps
+    
+  </h1>
+  
+  
+    
+  
+    
+  
+  
+</header>
+
+    <article id="article">
+      
+        
+          <div id="post">
+  <div id="post-info">
+    <span id="post-date">
+      2020-02-05
+    </span>
+    
+  </div>
+
+  <div id="post-content">
+    <p>kotlin에는 3가지 jump 표현식이 있다.</p>
+<ul>
+<li><code>return</code> : 제일 가까운 enclosing function으로 부터 return 합니다.</li>
+<li><code>break</code> : 제일 가까운 enclosing loop를 종료합니다.</li>
+<li><code>continue</code> : 제일 가까운 enclosing loop의 다음 단계(step)를 진행합니다.</li>
+</ul>
+<h2 id="Break-and-Continue-Labels"><a href="#Break-and-Continue-Labels" class="headerlink" title="Break and Continue Labels"></a>Break and Continue Labels</h2><p>Kotlin의 어떤 표현이든 <code>label</code>을 붙일 수 있다. <code>@</code>을 붙여서 라벨을 만들 수 있는데, 아래와 같이 쓰인다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-symbol">loop@</span> <span class="hljs-keyword">for</span> (i <span class="hljs-keyword">in</span> <span class="hljs-number">1</span>..<span class="hljs-number">100</span>)&#123;<br>  <span class="hljs-comment">// ...</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>이제, <code>break</code>에 <code>label</code>을 붙이면 아래와 같이 쓸 수 있는데</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-symbol">loop@</span> <span class="hljs-keyword">for</span> (i <span class="hljs-keyword">in</span> <span class="hljs-number">1</span>..<span class="hljs-number">100</span>)&#123;<br>  <span class="hljs-keyword">for</span> (j <span class="hljs-keyword">in</span> <span class="hljs-number">1</span>..<span class="hljs-number">100</span>)&#123;<br>    <span class="hljs-keyword">if</span> (...) <span class="hljs-keyword">break</span><span class="hljs-symbol">@loop</span><br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>위의 코드 같은 경우는 <code>break@loop</code>에서 <code>loop@</code>로 점프 한 후 바로 다음 코드가 실행 된다고 한다. <code>continue</code> 같은 경우는 loop의 다음 반복자가 실행 된다고 한다.</p>
+<p>뭔가 바로 느낌이 오지 않아 label이 없는 것과 있는 것을 비교하기 위해 예제를 만들었다.(<a href="https://github.com/gmlwo530/kotlin-tour/blob/master/offical-doc/break_label.kt" target="_blank" rel="noopener">코드</a>)</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-comment">// break_label.kt</span><br><br><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>  println(<span class="hljs-string">"Without Label Start"</span>)<br>  <span class="hljs-keyword">for</span> (i <span class="hljs-keyword">in</span> <span class="hljs-number">1</span>..<span class="hljs-number">3</span>)&#123;<br>    <span class="hljs-keyword">for</span> (j <span class="hljs-keyword">in</span> <span class="hljs-number">1</span>..<span class="hljs-number">5</span>)&#123;<br>      <span class="hljs-keyword">if</span> (j==<span class="hljs-number">4</span>) <span class="hljs-keyword">break</span><br>      print(<span class="hljs-string">"<span class="hljs-variable">$j</span> "</span>)<br>    &#125;<br>  &#125;<br>  println(<span class="hljs-string">"\nWithout Label Done"</span>)<br>  println(<span class="hljs-string">"--------------"</span>)<br><br>  println(<span class="hljs-string">"With Label Start"</span>)<br>  <span class="hljs-symbol">loop@</span> <span class="hljs-keyword">for</span> (i <span class="hljs-keyword">in</span> <span class="hljs-number">1</span>..<span class="hljs-number">3</span>)&#123;<br>    <span class="hljs-keyword">for</span> (j <span class="hljs-keyword">in</span> <span class="hljs-number">1</span>..<span class="hljs-number">5</span>)&#123;<br>      <span class="hljs-keyword">if</span> (j==<span class="hljs-number">4</span>) <span class="hljs-keyword">break</span><span class="hljs-symbol">@loop</span><br>      print(<span class="hljs-string">"<span class="hljs-variable">$j</span> "</span>)<br>    &#125;<br>  &#125;<br>  println(<span class="hljs-string">"\nWith Label Done"</span>)<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs text">Without Label Start<br>1 2 3 1 2 3 1 2 3<br>Without Label Done<br>--------------<br>With Label Start<br>1 2 3<br>With Label Done<br></code></pre></td></tr></table></figure>
+
+<p>출력 된 숫자를 보면 바로 label이 break와 쓰였을 때 어떤 역할을 하는지 알 수 있다.</p>
+<p>비슷한 코드로 continue도 알아보겠다.(<a href="https://github.com/gmlwo530/kotlin-tour/blob/master/offical-doc/continue_label.kt" target="_blank" rel="noopener">코드</a>)</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-comment">// continue_label.kt</span><br><br><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>  println(<span class="hljs-string">"Without Label Start"</span>)<br>  <span class="hljs-keyword">for</span> (i <span class="hljs-keyword">in</span> <span class="hljs-number">1</span>..<span class="hljs-number">3</span>)&#123;<br>    <span class="hljs-keyword">for</span> (j <span class="hljs-keyword">in</span> <span class="hljs-number">1</span>..<span class="hljs-number">5</span>)&#123;<br>      <span class="hljs-keyword">if</span> (j==<span class="hljs-number">4</span>) <span class="hljs-keyword">continue</span><br>      print(<span class="hljs-string">"<span class="hljs-variable">$j</span> "</span>)<br>    &#125;<br>  &#125;<br>  println(<span class="hljs-string">"Without Label Done"</span>)<br>  println(<span class="hljs-string">"--------------"</span>)<br><br>  println(<span class="hljs-string">"With Label Start"</span>)<br>  <span class="hljs-symbol">loop@</span> <span class="hljs-keyword">for</span> (i <span class="hljs-keyword">in</span> <span class="hljs-number">1</span>..<span class="hljs-number">3</span>)&#123;<br>    <span class="hljs-keyword">for</span> (j <span class="hljs-keyword">in</span> <span class="hljs-number">1</span>..<span class="hljs-number">5</span>)&#123;<br>      <span class="hljs-keyword">if</span> (j==<span class="hljs-number">4</span>) <span class="hljs-keyword">continue</span><span class="hljs-symbol">@loop</span><br>      print(<span class="hljs-string">"<span class="hljs-variable">$j</span> "</span>)<br>    &#125;<br>  &#125;<br>  println(<span class="hljs-string">"\nWith Label Done"</span>)<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs text">Without Label Start<br>1 2 3 5 1 2 3 5 1 2 3 5<br>Without Label Done<br>--------------<br>With Label Start<br>1 2 3 1 2 3 1 2 3<br>With Label Done<br></code></pre></td></tr></table></figure>
+
+<p>잘 쓰면 좋은 표현인거 같다.</p>
+<h2 id="Return-at-Labels"><a href="#Return-at-Labels" class="headerlink" title="Return at Labels"></a>Return at Labels</h2><p><code>return</code>은 함수를 리턴 시켜준다. 아래 코드를 보자</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span></span> &#123;<br>    listOf(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>).forEach &#123;<br>        <span class="hljs-keyword">if</span> (it == <span class="hljs-number">3</span>) <span class="hljs-keyword">return</span> <span class="hljs-comment">// non-local return directly to the caller of foo()</span><br>        print(it)<br>    &#125;<br>    println(<span class="hljs-string">"this point is unreachable"</span>)<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>간단하다. <code>println(&quot;this point is unreachable&quot;)</code> 줄은 실행되지 않는 것을 확인 할 수 있다.</p>
+<p>위의 코드와 같이 <code>return</code>은 가장 가까운 enclosing function인 <code>foo()</code>로 부터 리턴 시켜준다.</p>
+<p>만약 lambda expression에서 리턴 시켜주고 싶으면 <code>label</code>을 사용하면 된다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span></span> &#123;<br>    listOf(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>).forEach <span class="hljs-symbol">lit@</span>&#123;<br>        <span class="hljs-keyword">if</span> (it == <span class="hljs-number">3</span>) <span class="hljs-keyword">return</span><span class="hljs-symbol">@lit</span> <span class="hljs-comment">// local return to the caller of the lambda, i.e. the forEach loop</span><br>        print(it)<br>    &#125;<br>    print(<span class="hljs-string">" done with explicit label"</span>)<br>&#125;<br><br><span class="hljs-comment">// 위의 라벨을 두개 쓰지 않고 하나만 쓰고 싶으면 라벨 이름을 함수 이름으로 하면 된다.</span><br><span class="hljs-comment">/*<br>  fun foo() &#123;<br>      listOf(1, 2, 3, 4, 5).forEach &#123;<br>          if (it == 3) return@forEach<br>          print(it)<br>      &#125;<br>      print(" done with explicit label")<br>  &#125;<br>*/</span><br><br><span class="hljs-comment">// Result : 1245 done with explicit label</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>문서에 보면 이런 문장이 있다. <code>Note that such non-local returns are supported only for lambda expressions passed to inline functions.</code> 여기서 non-local returns은 이후 문서에서 자세히 다뤄보겠다. 간단하게만 보자면 non-local return은 lambda가 inline function에 들어가게 되면 사용 할 수 있다.</p>
+</li>
+<li><p>처음에 이 코드를 보고 contiune는 안되나 해서 해봤더니, <code>The label &#39;@lit&#39; does not denote a loop</code> 오류가 났다. 위의 코드는 lambda expression이지 for-loop가 아니라서 <code>break</code>와 <code>continue</code>를 쓸 수 없는 것이다. 번외로 아래 코드는 같은 역할을 한다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs kotlin">arrayOf(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>).forEach <span class="hljs-symbol">label@</span> &#123;<br>  print(it)<br>  <span class="hljs-keyword">return</span><span class="hljs-symbol">@label</span><br>&#125;<br><br><span class="hljs-symbol">label@</span> <span class="hljs-keyword">for</span> (i <span class="hljs-keyword">in</span> arrayOf(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>)) &#123;<br>  print(i)<br>  <span class="hljs-keyword">continue</span><span class="hljs-symbol">@label</span><br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><code>lit@</code>, <code>@lit</code>처럼 두 라벨을 만드는 것을 explict label이라고 한다.</p>
+</li>
+<li><p><code>@forEach</code>처럼 하나의 라벨을 만드는 것을 implict label이라고 한다.</p>
+</li>
+</ul>
+<p>위에서는 lambda expression일 때를 다뤘는데, 만약 anonymous functino이 오게 된다면 그냥 <code>return</code>만 쓰면 된다. 이때 return을 local return이라고 한다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span></span> &#123;<br>    listOf(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>).forEach(<span class="hljs-function"><span class="hljs-title">fun</span><span class="hljs-params">(value: <span class="hljs-type">Int</span>)</span></span> &#123;<br>        <span class="hljs-keyword">if</span> (value == <span class="hljs-number">3</span>) <span class="hljs-keyword">return</span>  <span class="hljs-comment">// local return to the caller of the anonymous fun, i.e. the forEach loop</span><br>        print(value)<br>    &#125;)<br>    print(<span class="hljs-string">" done with anonymous function"</span>)<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<br>
+
+<p>위의 예제들은 <code>continue</code>의 역할을 했다. <code>break</code> 역할을 하는 직접적인 방법은 없지만, nesting lambda와 non-local return을 이용하면 같은 역할을 하는 코드를 만들 수 있다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">foo</span><span class="hljs-params">()</span></span> &#123;<br>    run <span class="hljs-symbol">loop@</span>&#123;<br>        listOf(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>).forEach &#123;<br>            <span class="hljs-keyword">if</span> (it == <span class="hljs-number">3</span>) <span class="hljs-keyword">return</span><span class="hljs-symbol">@loop</span> <span class="hljs-comment">// non-local return from the lambda passed to run</span><br>            print(it)<br>        &#125;<br>    &#125;<br>    print(<span class="hljs-string">" done with nested loop"</span>)<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>return 할 때 원하는 값을 넘겨 줄 수도 있다.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">return</span><span class="hljs-symbol">@a</span> <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+
+<p><br><br><br>라벨이란 개념이 다른 언어에서는 못 봤던 개념이였다. 그래서 아직은 사용에 미숙하지만, 코딩을 할 때 잘 쓰면 좋은 기능일거 같다.</p>
+<p><br><br><br><strong>Reference</strong></p>
+<ul>
+<li><p><a href="https://kotlinlang.org/docs/reference/returns.html" target="_blank" rel="noopener">https://kotlinlang.org/docs/reference/returns.html</a></p>
+</li>
+<li><p><a href="https://stackoverflow.com/questions/45728687/the-label-does-not-denote-a-loop-in-foreach" target="_blank" rel="noopener">https://stackoverflow.com/questions/45728687/the-label-does-not-denote-a-loop-in-foreach</a></p>
+</li>
+</ul>
+
+  </div>
+</div>
+<a id="post-link-home" href="/">&#8592; Back</a>
+<br><br><br>
+<div id="disqus_thread"></div>
+
+<script type="text/javascript">
+  var host = window.location.hostname;
+  if (host !== "localhost"){
+    var disqus_config = function () {
+    this.page.url = "https://callmemaru.com/2020/02/05/Maru의-Kotlin-Tour-공식-문서-편-3-Returns-and-Jumps/";  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = "https://callmemaru.com/2020/02/05/Maru의-Kotlin-Tour-공식-문서-편-3-Returns-and-Jumps/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+
+    var d = document, s = d.createElement('script');
+    s.src = 'https://callmemaru.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+  }
+
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+        
+      
+      
+    </article>
+    <footer>
+  <span>Copyright 2018. Maru. All rights reserved.</span>
+</footer>
+
+    <div class="clear"></div>
+  </body>
+</html>
