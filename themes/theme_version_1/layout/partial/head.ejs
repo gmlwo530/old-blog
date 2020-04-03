@@ -1,6 +1,6 @@
-<meta charset="utf-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 <!--Description-->
 
@@ -19,34 +19,34 @@ if (page.description) {
 %>
 
 <% if (description) { %>
-    <meta name="description" content="<%= description %>"/>
+<meta name="description" content="<%= description %>" />
 <% } %>
 
 <!--Author-->
 <% if (config.author) { %>
-    <meta name="author" content="<%= config.author %>"/>
+<meta name="author" content="<%= config.author %>" />
 <% } %>
 
 <!--Open Graph Title-->
 <% if (page.title) { %>
-    <meta property="og:title" content="<%= page.title %>"/>
+<meta property="og:title" content="<%= page.title %>" />
 <% } else { %>
-    <meta property="og:title" content="<%= config.title %>"/>
+<meta property="og:title" content="<%= config.title %>" />
 <% } %>
 
 <!--Open Graph Description-->
 <% if (description) { %>
-    <meta property="og:description" content="<%= description %>"/>
+<meta property="og:description" content="<%= description %>" />
 <% } %>
 
 <!--Open Graph Site Name-->
-    <meta property="og:site_name" content="<%= config.title %>"/>
+<meta property="og:site_name" content="<%= config.title %>" />
 
 <!--Type page-->
 <% if(page.title) { %>
-    <meta property="og:type" content="article"/>
+<meta property="og:type" content="article" />
 <% } else { %>
-    <meta property="og:type" content="website"/>
+<meta property="og:type" content="website" />
 <% } %>
 
 <!--Page Cover-->
@@ -61,7 +61,7 @@ if (page.description) {
     }
 %>
 <% if (image) { %>
-    <meta property="og:image" content="<%= config.url %><%= image %>"/>
+<meta property="og:image" content="<%= config.url %><%= image %>" />
 <% } %>
 
 <!-- Title -->
@@ -84,6 +84,11 @@ title.push(config.title);
 
 <!-- Custom CSS -->
 <%- css('css/style.css') %>
+<!-- <link rel="stylesheet" href="/css/default.css">
+<script src="/js/highlight.pack.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script> -->
 
 <!-- Gallery -->
 <!-- <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/> -->
@@ -93,5 +98,5 @@ title.push(config.title);
 
 <!-- favicon -->
 <% if (theme.favicon) { %>
-  <link rel="icon" href="<%- theme.favicon %>"/>
+<link rel="icon" href="<%- theme.favicon %>" />
 <% } %>
