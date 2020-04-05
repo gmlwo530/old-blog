@@ -1,39 +1,39 @@
 <!DOCTYPE html>
 <html>
-  <head><meta name="generator" content="Hexo 3.9.0">
-    <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 <!--Description-->
 
 
 
 
-    <meta name="description" content="Maru&#39;s Blog">
+<meta name="description" content="Maru&#39;s Blog" />
 
 
 <!--Author-->
 
-    <meta name="author" content="CHOI HEE JAE">
+<meta name="author" content="CHOI HEE JAE" />
 
 
 <!--Open Graph Title-->
 
-    <meta property="og:title" content="[Maru의 Kotlin Tour - 공식 문서 편] #1 Basic Types">
+<meta property="og:title" content="[Maru의 Kotlin Tour - 공식 문서 편] #1 Basic Types" />
 
 
 <!--Open Graph Description-->
 
-    <meta property="og:description" content="Maru&#39;s Blog">
+<meta property="og:description" content="Maru&#39;s Blog" />
 
 
 <!--Open Graph Site Name-->
-    <meta property="og:site_name" content="Call Me Maru">
+<meta property="og:site_name" content="Call Me Maru" />
 
 <!--Type page-->
 
-    <meta property="og:type" content="article">
+<meta property="og:type" content="article" />
 
 
 <!--Page Cover-->
@@ -48,7 +48,14 @@
 <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/> -->
 
 <!-- Custom CSS -->
+
 <link rel="stylesheet" href="/css/style.css">
+
+<!-- <link rel="stylesheet" href="/css/default.css">
+<script src="/js/highlight.pack.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script> -->
 
 <!-- Gallery -->
 <!-- <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/> -->
@@ -68,23 +75,22 @@
 
 <!-- favicon -->
 
-  <link rel="icon" href="/image/favicon.png">
+<link rel="icon" href="/image/favicon.png" />
 
-
-  </head>
+  <meta name="generator" content="Hexo 4.2.0"></head>
 
   <body>
     <nav class="nav-container">
   
-    <a class="link" href="/" target>
+    <a class="link" href="/" target="">
       Home
     </a>
   
-    <a class="link" href="/about" target>
+    <a class="link" href="/about" target="">
       About
     </a>
   
-    <a class="link" href="/history" target>
+    <a class="link" href="/history" target="">
       History
     </a>
   
@@ -108,7 +114,7 @@
   
 </header>
 
-    <article id="article">
+    <article id='article'>
       
         
           <div id="post">
@@ -137,7 +143,7 @@
 <li><code>Int</code></li>
 <li><code>Long</code></li>
 </ul>
-<figure class="highlight Kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs Kotlin"><span class="hljs-keyword">val</span> one = <span class="hljs-number">1</span> <span class="hljs-comment">// Int</span><br><span class="hljs-keyword">val</span> threeBillion = <span class="hljs-number">300000000</span> <span class="hljs-comment">// Long</span><br><span class="hljs-keyword">val</span> oneLong = <span class="hljs-number">1L</span> <span class="hljs-comment">// Long</span><br><span class="hljs-keyword">val</span> oneByte: <span class="hljs-built_in">Byte</span> = <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs Kotlin"><span class="hljs-keyword">val</span> one = <span class="hljs-number">1</span> <span class="hljs-comment">// Int</span><br><span class="hljs-keyword">val</span> threeBillion = <span class="hljs-number">300000000</span> <span class="hljs-comment">// Long</span><br><span class="hljs-keyword">val</span> oneLong = <span class="hljs-number">1L</span> <span class="hljs-comment">// Long</span><br><span class="hljs-keyword">val</span> oneByte: <span class="hljs-built_in">Byte</span> = <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
 
 <p>위의 코드에서 주목해야 할 점은 <code>threeBillioin</code> 변수이다.</p>
 <p>integer로 초기화 된 변수는 <code>Int</code>의 maximum value를 초과 할 수 없다. 만약 초과 했다면, 그 변수의 type은 <code>Long</code>이다. 타입을 명시하고 싶으면 값 뒤에 <code>L</code>을 붙여주면 된다.<br><br><br><br></p>
@@ -145,7 +151,7 @@
 <li><code>Double</code></li>
 <li><code>Float</code></li>
 </ul>
-<figure class="highlight Kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs Kotlin"><span class="hljs-keyword">val</span> pi = <span class="hljs-number">3.14</span> <span class="hljs-comment">// Double</span><br><span class="hljs-keyword">val</span> e = <span class="hljs-number">2.7182818284</span> <span class="hljs-comment">// Double</span><br><span class="hljs-keyword">val</span> eFloat = <span class="hljs-number">2.7182818284f</span> <span class="hljs-comment">// Float, actual value is 2.7182817</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs Kotlin"><span class="hljs-keyword">val</span> pi = <span class="hljs-number">3.14</span> <span class="hljs-comment">// Double</span><br><span class="hljs-keyword">val</span> e = <span class="hljs-number">2.7182818284</span> <span class="hljs-comment">// Double</span><br><span class="hljs-keyword">val</span> eFloat = <span class="hljs-number">2.7182818284f</span> <span class="hljs-comment">// Float, actual value is 2.7182817</span><br></code></pre></td></tr></table></figure>
 
 <p>별 다른 표기가 없으면 compiler는 <code>Double</code> type으로 추론한다.<br><code>Float</code> type으로 명시하고 싶으면 <code>f</code> 또는 <code>F</code>를 접미어로 붙입니다. <code>Float</code> type의 값의 소수점이 6-7자리보다 많으면 반올림을 합니다. (<code>Double</code>은 15-16, <code>Float</code>은 6-7의 소수점 까지 표현 가능)<br><br><br><br></p>
 <h3 id="Explict-conversions"><a href="#Explict-conversions" class="headerlink" title="Explict conversions"></a>Explict conversions</h3><p>여기서 주의 해야 할 것이 다른 언어와 달리, Kotlin은 <code>implicit widening conversions</code>을 Number에서 제공하지 않습니다.</p>
@@ -153,7 +159,7 @@
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>  <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">printDouble</span><span class="hljs-params">(d: <span class="hljs-type">Double</span>)</span></span> &#123; print(d) &#125;<br><br>  <span class="hljs-keyword">val</span> i = <span class="hljs-number">1</span><br>  <span class="hljs-keyword">val</span> d = <span class="hljs-number">1.1</span><br>  <span class="hljs-keyword">val</span> f = <span class="hljs-number">1.1f</span><br><br>  printDouble(d)<br>  <span class="hljs-comment">// printDouble(i) // Error: Type mismatch</span><br>  <span class="hljs-comment">// printDouble(f) // Error: Type mismatch</span><br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>이런 상황도 발생한다.</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-comment">// 가상의 코드다, 실제로 컴파일 되지 않는다.</span><br><span class="hljs-keyword">val</span> a: <span class="hljs-built_in">Int</span>? = <span class="hljs-number">1</span> <span class="hljs-comment">// A boxed Int (java.lang.Integer)</span><br><span class="hljs-keyword">val</span> b: <span class="hljs-built_in">Long</span>? = a <span class="hljs-comment">// implicit conversion yields a boxed Long (java.lang.Long)</span><br>print(b == a) <span class="hljs-comment">// Surprise! This prints "false" as Long's equals() checks whether the other is Long as well</span><br><br><br><span class="hljs-comment">/*<br>---------------------------------------------<br>*/</span><br><br><br><span class="hljs-keyword">val</span> b: <span class="hljs-built_in">Byte</span> = <span class="hljs-number">1</span> <span class="hljs-comment">// OK, literals are checked statically</span><br><span class="hljs-keyword">val</span> i: <span class="hljs-built_in">Int</span> = b <span class="hljs-comment">// ERROR</span><br><span class="hljs-keyword">val</span> i: <span class="hljs-built_in">Int</span> = b.toInt() <span class="hljs-comment">// OK: explicitly widened</span><br>print(i)<br></code></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-comment">// 가상의 코드다, 실제로 컴파일 되지 않는다.</span><br><span class="hljs-keyword">val</span> a: <span class="hljs-built_in">Int</span>? = <span class="hljs-number">1</span> <span class="hljs-comment">// A boxed Int (java.lang.Integer)</span><br><span class="hljs-keyword">val</span> b: <span class="hljs-built_in">Long</span>? = a <span class="hljs-comment">// implicit conversion yields a boxed Long (java.lang.Long)</span><br>print(b == a) <span class="hljs-comment">// Surprise! This prints "false" as Long's equals() checks whether the other is Long as well</span><br><br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">---------------------------------------------</span><br><span class="hljs-comment">*/</span><br><br><br><span class="hljs-keyword">val</span> b: <span class="hljs-built_in">Byte</span> = <span class="hljs-number">1</span> <span class="hljs-comment">// OK, literals are checked statically</span><br><span class="hljs-keyword">val</span> i: <span class="hljs-built_in">Int</span> = b <span class="hljs-comment">// ERROR</span><br><span class="hljs-keyword">val</span> i: <span class="hljs-built_in">Int</span> = b.toInt() <span class="hljs-comment">// OK: explicitly widened</span><br>print(i)<br></code></pre></td></tr></table></figure>
 
 <p>그래서 아래와 같은 함수를 사용하면 된다.</p>
 <ul>
@@ -197,19 +203,15 @@
 
 <p>array를 만들기 위해서는 문서에서 3가지 방법을 제시 해줍니다.</p>
 <ul>
-<li><p><code>arrayOf(1, 2, 3)</code></p>
-</li>
-<li><p><code>arrayOfNulls()</code></p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> a : Array&lt;String?&gt; = arrayOfNulls(<span class="hljs-number">3</span>)<br></code></pre></td></tr></table></figure>
-</li>
-<li><p><code>Array</code> constructor</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs kotlin">  <span class="hljs-comment">// Creates an Array&lt;String&gt; with values ["0", "1", "4", "9", "16"]</span><br><span class="hljs-keyword">val</span> asc = Array(<span class="hljs-number">5</span>) &#123; i -&gt; (i * i).toString() &#125;<br>asc.forEach &#123; println(it) &#125;<br></code></pre></td></tr></table></figure>
+<li><code>arrayOf(1, 2, 3)</code></li>
+<li><code>arrayOfNulls()</code><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> a : Array&lt;String?&gt; = arrayOfNulls(<span class="hljs-number">3</span>)<br></code></pre></td></tr></table></figure></li>
+<li><code>Array</code> constructor<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs kotlin">  <span class="hljs-comment">// Creates an Array&lt;String&gt; with values ["0", "1", "4", "9", "16"]</span><br><span class="hljs-keyword">val</span> asc = Array(<span class="hljs-number">5</span>) &#123; i -&gt; (i * i).toString() &#125;<br>asc.forEach &#123; println(it) &#125;<br></code></pre></td></tr></table></figure>
 
 </li>
 </ul>
 <p>또한, Kotlin에서 Array는 불변이라 <code>Array&lt;String&gt;</code>가 <code>Array&lt;Any&gt;</code>에 할당되지 않는다.</p>
 <h3 id="Primitive-type-arrays"><a href="#Primitive-type-arrays" class="headerlink" title="Primitive type arrays"></a>Primitive type arrays</h3><p>kotlin에는 원시 타입의 배열을 표현 할 수 있는 특별한 클래스가 있다.</p>
-<figure class="highlight Kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs Kotlin"><span class="hljs-comment">// Array of int of size 5 with values [0, 0, 0, 0, 0]</span><br><span class="hljs-keyword">val</span> arr = IntArray(<span class="hljs-number">5</span>)<br><br><span class="hljs-comment">// e.g. initialise the values in the array with a constant</span><br><span class="hljs-comment">// Array of int of size 5 with values [42, 42, 42, 42, 42]</span><br><span class="hljs-keyword">val</span> arr = IntArray(<span class="hljs-number">5</span>) &#123; <span class="hljs-number">42</span> &#125;<br><br><span class="hljs-comment">// e.g. initialise the values in the array using a lambda</span><br><span class="hljs-comment">// Array of int of size 5 with values [0, 1, 2, 3, 4] (values initialised to their index value)</span><br><span class="hljs-keyword">var</span> arr = IntArray(<span class="hljs-number">5</span>) &#123; it * <span class="hljs-number">1</span> &#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs Kotlin"><span class="hljs-comment">// Array of int of size 5 with values [0, 0, 0, 0, 0]</span><br><span class="hljs-keyword">val</span> arr = IntArray(<span class="hljs-number">5</span>)<br><br><span class="hljs-comment">// e.g. initialise the values in the array with a constant</span><br><span class="hljs-comment">// Array of int of size 5 with values [42, 42, 42, 42, 42]</span><br><span class="hljs-keyword">val</span> arr = IntArray(<span class="hljs-number">5</span>) &#123; <span class="hljs-number">42</span> &#125;<br><br><span class="hljs-comment">// e.g. initialise the values in the array using a lambda</span><br><span class="hljs-comment">// Array of int of size 5 with values [0, 1, 2, 3, 4] (values initialised to their index value)</span><br><span class="hljs-keyword">var</span> arr = IntArray(<span class="hljs-number">5</span>) &#123; it * <span class="hljs-number">1</span> &#125;<br></code></pre></td></tr></table></figure>
 
 <p><br><br><br></p>
 <h2 id="Unsigned-integers"><a href="#Unsigned-integers" class="headerlink" title="Unsigned integers"></a>Unsigned integers</h2><p>부호없는 유형은 Kotlin 1.3 이후에만 사용할 수 있어서, 일단 패스하겠다.</p>
@@ -221,13 +223,13 @@
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> s = <span class="hljs-string">"abc"</span> + <span class="hljs-number">1</span><br>println(s + <span class="hljs-string">"def"</span>) <span class="hljs-comment">// abc1def</span><br><br><span class="hljs-keyword">val</span> s1= <span class="hljs-number">1</span> + <span class="hljs-string">"abc"</span> <span class="hljs-comment">// Error!</span><br></code></pre></td></tr></table></figure>
 
 <p>여러 줄을 표현하는 방법은 다음과 같다</p>
-<figure class="highlight Kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs Kotlin"><span class="hljs-keyword">val</span> text = <span class="hljs-string">"""<br>    for (c in "foo")<br>        print(c)<br>"""</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs Kotlin"><span class="hljs-keyword">val</span> text = <span class="hljs-string">"""</span><br><span class="hljs-string">    for (c in "foo")</span><br><span class="hljs-string">        print(c)</span><br><span class="hljs-string">"""</span><br></code></pre></td></tr></table></figure>
 
 <p><code>trimMargin()</code> 함수를 이용해서 whitespace를 제거 할 수 있다.</p>
-<figure class="highlight Kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs Kotlin"><span class="hljs-comment">// By default | is used as margin prefix</span><br><br><br><span class="hljs-comment">/*<br>    |Tell me and I forget.<br>    |Teach me and I remember.<br>    |Involve me and I learn.<br>    |(Benjamin Franklin)<br>*/</span><br><span class="hljs-keyword">val</span> text = <span class="hljs-string">"""<br>    |Tell me and I forget.<br>    |Teach me and I remember.<br>    |Involve me and I learn.<br>    |(Benjamin Franklin)<br>    """</span><br><br><span class="hljs-comment">/*<br>Tell me and I forget.<br>Teach me and I remember.<br>Involve me and I learn.<br>(Benjamin Franklin)<br>*/</span><br><span class="hljs-keyword">val</span> text = <span class="hljs-string">"""<br>    |Tell me and I forget.<br>    |Teach me and I remember.<br>    |Involve me and I learn.<br>    |(Benjamin Franklin)<br>    """</span>.trimMargin()<br></code></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs Kotlin"><span class="hljs-comment">// By default | is used as margin prefix</span><br><br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">    |Tell me and I forget.</span><br><span class="hljs-comment">    |Teach me and I remember.</span><br><span class="hljs-comment">    |Involve me and I learn.</span><br><span class="hljs-comment">    |(Benjamin Franklin)</span><br><span class="hljs-comment">*/</span><br><span class="hljs-keyword">val</span> text = <span class="hljs-string">"""</span><br><span class="hljs-string">    |Tell me and I forget.</span><br><span class="hljs-string">    |Teach me and I remember.</span><br><span class="hljs-string">    |Involve me and I learn.</span><br><span class="hljs-string">    |(Benjamin Franklin)</span><br><span class="hljs-string">    """</span><br><span class="hljs-string"></span><br><span class="hljs-string">/*</span><br><span class="hljs-string">Tell me and I forget.</span><br><span class="hljs-string">Teach me and I remember.</span><br><span class="hljs-string">Involve me and I learn.</span><br><span class="hljs-string">(Benjamin Franklin)</span><br><span class="hljs-string">*/</span><br><span class="hljs-string">val text = """</span><br><span class="hljs-string">    |Tell me and I forget.</span><br><span class="hljs-string">    |Teach me and I remember.</span><br><span class="hljs-string">    |Involve me and I learn.</span><br><span class="hljs-string">    |(Benjamin Franklin)</span><br><span class="hljs-string">    """</span>.trimMargin()<br></code></pre></td></tr></table></figure>
 
 <h3 id="String-templates"><a href="#String-templates" class="headerlink" title="String templates"></a>String templates</h3><p><code>$</code>를 사용해서 string 안에 변수를 넣을 수 있다.</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> i = <span class="hljs-number">10</span><br>println(<span class="hljs-string">"i = <span class="hljs-variable">$i</span>"</span>) <span class="hljs-comment">// prints "i = 10"</span><br><br><span class="hljs-keyword">val</span> s = <span class="hljs-string">"abc"</span><br>println(<span class="hljs-string">"<span class="hljs-variable">$s</span>.length is <span class="hljs-subst">$&#123;s.length&#125;</span>"</span>) <span class="hljs-comment">// prints "abc.length is 3"</span><br><br><span class="hljs-keyword">val</span> price = <span class="hljs-string">"""<br><span class="hljs-subst">$&#123;<span class="hljs-string">'$'</span>&#125;</span>9.99<br>"""</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> i = <span class="hljs-number">10</span><br>println(<span class="hljs-string">"i = <span class="hljs-variable">$i</span>"</span>) <span class="hljs-comment">// prints "i = 10"</span><br><br><span class="hljs-keyword">val</span> s = <span class="hljs-string">"abc"</span><br>println(<span class="hljs-string">"<span class="hljs-variable">$s</span>.length is <span class="hljs-subst">$&#123;s.length&#125;</span>"</span>) <span class="hljs-comment">// prints "abc.length is 3"</span><br><br><span class="hljs-keyword">val</span> price = <span class="hljs-string">"""</span><br><span class="hljs-string"><span class="hljs-subst">$&#123;<span class="hljs-string">'$'</span>&#125;</span>9.99</span><br><span class="hljs-string">"""</span><br></code></pre></td></tr></table></figure>
 
 <p><br><br></p>
 <hr>
@@ -239,7 +241,7 @@
 
   </div>
 </div>
-<a id="post-link-home" href="/">&#8592; Back</a>
+<a id="post-link-home" href='/'>&#8592; Back</a>
 <br><br><br>
 <div id="disqus_thread"></div>
 
@@ -247,8 +249,8 @@
   var host = window.location.hostname;
   if (host !== "localhost"){
     var disqus_config = function () {
-    this.page.url = "https://callmemaru.com/2020/02/02/Maru의-Kotlin-Tour-공식-문서-편-1-Basic-Types/";  // Replace PAGE_URL with your page's canonical URL variable
-    this.page.identifier = "https://callmemaru.com/2020/02/02/Maru의-Kotlin-Tour-공식-문서-편-1-Basic-Types/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    this.page.url = "https://callmemaru.com/2020/02/02/Maru%EC%9D%98-Kotlin-Tour-%EA%B3%B5%EC%8B%9D-%EB%AC%B8%EC%84%9C-%ED%8E%B8-1-Basic-Types/";  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = "https://callmemaru.com/2020/02/02/Maru%EC%9D%98-Kotlin-Tour-%EA%B3%B5%EC%8B%9D-%EB%AC%B8%EC%84%9C-%ED%8E%B8-1-Basic-Types/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 
     (function() { // DON'T EDIT BELOW THIS LINE
@@ -261,7 +263,7 @@
   }
 
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
 
         
       
@@ -271,6 +273,6 @@
   <span>Copyright 2018. Maru. All rights reserved.</span>
 </footer>
 
-    <div class="clear"></div>
+    <div class='clear'></div>
   </body>
 </html>
