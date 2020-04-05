@@ -1,5 +1,5 @@
 ---
-title: [Maru의 Kotlin Tour 공식 문서 편] 4 Classes and Inheritance
+title: "[Maru의 Kotlin Tour 공식 문서 편] 4 Classes and Inheritance"
 tags:
   - Kotlin
 ---
