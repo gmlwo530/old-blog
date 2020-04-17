@@ -149,6 +149,7 @@ body {
   min-height: 100%;
   margin: 0;
   padding: 0;
+  font-size: 1rem;
 }
 body {
   background: #fff;
@@ -163,7 +164,7 @@ nav.nav-container {
 }
 nav.nav-container a.link {
   display: block;
-  margin: 0 5px;
+  margin: 0 10px;
   color: #000;
 }
 nav.nav-container a.link:visited {
