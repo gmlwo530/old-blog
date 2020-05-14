@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!--Description-->
+
+
+
+
+<meta name="description" content="Maru&#39;s Blog" />
+
+
+<!--Author-->
+
+<meta name="author" content="CHOI HEE JAE" />
+
+
+<!--Open Graph Title-->
+
+<meta property="og:title" content="Glide Error - You cannot start a load for a destroyed activity" />
+
+
+<!--Open Graph Description-->
+
+<meta property="og:description" content="Maru&#39;s Blog" />
+
+
+<!--Open Graph Site Name-->
+<meta property="og:site_name" content="Call Me Maru" />
+
+<!--Type page-->
+
+<meta property="og:type" content="article" />
+
+
+<!--Page Cover-->
+
+
+
+<!-- Title -->
+
+<title>Glide Error - You cannot start a load for a destroyed activity - Call Me Maru</title>
+
+<!-- Bootstrap Core CSS -->
+<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/> -->
+
+<!-- Custom CSS -->
+
+<link rel="stylesheet" href="/css/style.css">
+
+<!-- <link rel="stylesheet" href="/css/default.css">
+<script src="/js/highlight.pack.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script> -->
+
+<!-- Gallery -->
+<!-- <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/> -->
+
+<!-- Google Analytics -->
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113083768-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-113083768-3');
+  </script>
+
+
+<!-- favicon -->
+
+<link rel="icon" href="/image/favicon.png" />
+
+  <meta name="generator" content="Hexo 4.2.0"></head>
+
+  <body>
+    <nav class="nav-container">
+  
+    <a class="link" href="/" target="">
+      Home
+    </a>
+  
+    <a class="link" href="/about" target="">
+      About
+    </a>
+  
+    <a class="link" href="/history" target="">
+      History
+    </a>
+  
+    <a class="link" href="https://github.com/gmlwo530" target="_blank">
+      Github
+    </a>
+  
+</nav>
+    <header>
+  <h1>
+    
+      Glide Error - You cannot start a load for a destroyed activity
+    
+  </h1>
+  
+  
+    
+  
+    
+  
+  
+</header>
+
+    <article id='article'>
+      
+        
+          <div id="post">
+  <div id="post-info">
+    <span id="post-date">
+      2020-05-14
+    </span>
+    
+      
+        <span class="post-tag-name">#android</span>
+      
+        <span class="post-tag-name">#error-log</span>
+      
+    
+  </div>
+
+  <div id="post-content">
+    <p>Glide 관련 된 처음보는 오류가 발생했다.</p>
+<p><code>You cannot start a load for a destroyed activity</code></p>
+<p>다행히(?) 예전에 이슈가 된 에러였다.(<a href="https://github.com/bumptech/glide/issues/803" target="_blank" rel="noopener">https://github.com/bumptech/glide/issues/803</a>)</p>
+<p>이런 에러가 발생한 이유는 <code>with()</code> 함수가 lifecycle을 따르기 때문이다. 즉 Glide가 이미지가 로드 중 <code>Glide.with()</code>의 <code>with()</code>에 들어간 인자가<br>“activity 또는 fragment가 destroyed”되면서 영향을 받게 되고 위의 에러가 발생한 것으로 보입니다.</p>
+<p><a href="https://stackoverflow.com/questions/31964737/glide-image-loading-with-application-context/32887693#32887693" target="_blank" rel="noopener">스택오버플로우</a>에서 제안하는 방법으로는</p>
+<p>아래와 같이 <code>RequestManager</code>를 변수에 담아주고 사용하는 것이다.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyAdapter</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">WhichEveryOneYouUse</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> RequestManager glide;<br>    MyAdapter(RequestManager glide, ...) &#123;<br>        <span class="hljs-keyword">this</span>.glide = glide;<br>        ...<br>    &#125;<br>    <span class="hljs-keyword">void</span> getView/onBindViewHolder(... <span class="hljs-keyword">int</span> position) &#123;<br>        <span class="hljs-comment">// ... holder magic, and get current item for position</span><br>        glide.load... <span class="hljs-function">or even <span class="hljs-title">loadImage</span><span class="hljs-params">(glide, item.url, holder.image)</span></span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java">loadImage(Glide.with(<span class="hljs-keyword">this</span>), url, findViewById(R.id.image));<br><span class="hljs-comment">// or</span><br>list.setAdapter(<span class="hljs-keyword">new</span> MyAdapter(Glide.with(<span class="hljs-keyword">this</span>), data));<br></code></pre></td></tr></table></figure>
+
+<hr>
+<p><strong>Reference</strong></p>
+<ul>
+<li><p><a href="https://stackoverflow.com/questions/31964737/glide-image-loading-with-application-context/32887693#32887693" target="_blank" rel="noopener">https://stackoverflow.com/questions/31964737/glide-image-loading-with-application-context/32887693#32887693</a></p>
+</li>
+<li><p><a href="https://eso0609.tistory.com/72" target="_blank" rel="noopener">https://eso0609.tistory.com/72</a></p>
+</li>
+<li><p><a href="https://github.com/bumptech/glide/issues/803" target="_blank" rel="noopener">https://github.com/bumptech/glide/issues/803</a></p>
+</li>
+</ul>
+
+  </div>
+</div>
+<a id="post-link-home" href='/'>&#8592; Back</a>
+<br><br><br>
+<div id="disqus_thread"></div>
+
+<script type="text/javascript">
+  var host = window.location.hostname;
+  if (host !== "localhost"){
+    var disqus_config = function () {
+    this.page.url = "https://callmemaru.com/2020/05/14/Glide-Error-You-cannot-start-a-load-for-a-destroyed-activity/";  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = "https://callmemaru.com/2020/05/14/Glide-Error-You-cannot-start-a-load-for-a-destroyed-activity/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+
+    var d = document, s = d.createElement('script');
+    s.src = 'https://callmemaru.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+  }
+
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+
+        
+      
+      
+    </article>
+    <footer>
+  <span>Copyright 2018. Maru. All rights reserved.</span>
+</footer>
+
+    <div class='clear'></div>
+  </body>
+</html>
