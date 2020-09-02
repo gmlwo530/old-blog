@@ -11,6 +11,8 @@ Go를 이용해 크롤링을 하면서 두 가지 문제가 생겼다.
 1. 한국 웹 사이트는 Content Type이 EUC-KR로 세팅되어 있어서, 크롤링을 해왔을 때 한글이 깨진다.
 2. [goquery](https://github.com/PuerkitoBio/goquery)라는 HTML의 DOM을 CSS selector로 가져 올 수 있게 해주는 라이브러리를 사용하는데, DOM을 console에 프린터 해줄 수 있는 기능이 없다.
 
+구글링!
+
 결국 답은 StackOverFlow에 있었다. 먼저 해결법을 보자.
 
 #### _한국 웹 사이트는 Content Type이 EUC-KR로 세팅되어 있어서, 크롤링을 해왔을 때 한글이 깨진다._ ([출처](https://stackoverflow.com/a/31661586))
@@ -29,7 +31,7 @@ doc, err := goquery.NewDocumentFromReader(utf8reader)
 
 위 코드는 html의 Content-Type에 정의 된 인코딩 타입으로부터 utf-8 형식으로 인코딩 해주는 코드이다.
 
-참고로, `NewDocumentFromReader` 함수는 dom을 css selector로 읽을 수 있는 타입으로 변환 해주는 함수이다.
+참고로, `NewDocumentFromReader` 함수는 goquery 라이브러리에 정의 된 함수로써, dom을 css selector로 읽을 수 있는 타입으로 변환 해주는 함수이다.
 
 #### _DOM을 console에 프린터 해줄 수 있는 기능이 없다._ ([출처](https://stackoverflow.com/a/38855264))
 
